@@ -1,0 +1,16 @@
+/usr/include/c++/13/bits/stl_vector.h:1129:34: runtime error: reference binding to null pointer of type 'value_type'
+/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/src/Interpreter.cpp:40:13: runtime error: load of null pointer of type 'value_type'
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==7871==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x6369da0e7dfa bp 0x000000000000 sp 0x7fff0bbdc410 T0)
+==7871==The signal is caused by a READ memory access.
+==7871==Hint: address points to the zero page.
+    #0 0x6369da0e7dfa in Interpreter::Execute(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, unsigned int) (/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/build/Release/int+0x49dfa) (BuildId: e8137731cb41ca932f7ee321cc8e96d036fa92e0)
+    #1 0x6369da0d91a0 in main (/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/build/Release/int+0x3b1a0) (BuildId: e8137731cb41ca932f7ee321cc8e96d036fa92e0)
+    #2 0x7e8edb22a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #3 0x7e8edb22a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #4 0x6369da0d94c4 in _start (/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/build/Release/int+0x3b4c4) (BuildId: e8137731cb41ca932f7ee321cc8e96d036fa92e0)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/build/Release/int+0x49dfa) (BuildId: e8137731cb41ca932f7ee321cc8e96d036fa92e0) in Interpreter::Execute(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, unsigned int)
+==7871==ABORTING

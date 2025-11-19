@@ -1,0 +1,26 @@
+[1m.\Proj1\ex2.py[m[36m:[m12[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 0
+[1m.\Proj1\ex2.py[m[36m:[m13[36m:[m80[36m:[m [1m[31mE501[m line too long (82 > 79 characters)
+[1m.\Proj1\ex2.py[m[36m:[m21[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m25[36m:[m80[36m:[m [1m[31mE501[m line too long (82 > 79 characters)
+[1m.\Proj1\ex2.py[m[36m:[m30[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m37[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m47[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m58[36m:[m1[36m:[m [1m[31mE305[m expected 2 blank lines after class or function definition, found 1
+[1m.\Proj1\ex2.py[m[36m:[m79[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m94[36m:[m80[36m:[m [1m[31mE501[m line too long (112 > 79 characters)
+[1m.\Proj1\ex2.py[m[36m:[m95[36m:[m80[36m:[m [1m[31mE501[m line too long (91 > 79 characters)
+[1m.\Proj1\ex2.py[m[36m:[m102[36m:[m80[36m:[m [1m[31mE501[m line too long (80 > 79 characters)
+[1m.\Proj1\ex2.py[m[36m:[m103[36m:[m80[36m:[m [1m[31mE501[m line too long (116 > 79 characters)
+[1m.\Proj1\ex2.py[m[36m:[m112[36m:[m80[36m:[m [1m[31mE501[m line too long (88 > 79 characters)
+[1m.\Proj1\ex2.py[m[36m:[m115[36m:[m80[36m:[m [1m[31mE501[m line too long (97 > 79 characters)
+[1m.\Proj1\ex2.py[m[36m:[m120[36m:[m1[36m:[m [1m[31mE303[m too many blank lines (3)
+[1m.\Proj1\ex2.py[m[36m:[m121[36m:[m17[36m:[m [1m[31mE701[m multiple statements on one line (colon)
+[1m.\Proj1\ex2.py[m[36m:[m124[36m:[m1[36m:[m [1m[31mE305[m expected 2 blank lines after class or function definition, found 1
+[1m.\Proj1\ex2.py[m[36m:[m127[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m128[36m:[m80[36m:[m [1m[31mE501[m line too long (90 > 79 characters)
+[1m.\Proj1\ex2.py[m[36m:[m131[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m134[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m137[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m140[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m.\Proj1\ex2.py[m[36m:[m143[36m:[m1[36m:[m [1m[31mE305[m expected 2 blank lines after class or function definition, found 1
+[1m.\Proj1\ex2.py[m[36m:[m143[36m:[m7[36m:[m [1m[31mW292[m no newline at end of file

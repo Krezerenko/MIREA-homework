@@ -1,0 +1,562 @@
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:10:16: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   10 | int Assembler::Compile(const std::string &sourcePath, const std::string &binPath, const std::string &logPath)
+      | ~~~            ^                                                                                             
+      | auto                                                                                                          -> int
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:10:24: warning: 3 adjacent parameters of 'Compile' of similar type ('const std::string &') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   10 | int Assembler::Compile(const std::string &sourcePath, const std::string &binPath, const std::string &logPath)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:10:43: note: the first parameter in the range is 'sourcePath'
+   10 | int Assembler::Compile(const std::string &sourcePath, const std::string &binPath, const std::string &logPath)
+      |                                           ^~~~~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:10:102: note: the last parameter in the range is 'logPath'
+   10 | int Assembler::Compile(const std::string &sourcePath, const std::string &binPath, const std::string &logPath)
+      |                                                                                                      ^~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:30:27: warning: statement should be inside braces [readability-braces-around-statements]
+   30 |         if (words.empty()) continue;
+      |                           ^         
+      |                            {
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:60:36: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   60 |         command->SetAttribute("A", 26);
+      |                                    ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:68:36: warning: 27 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   68 |         command->SetAttribute("A", 27);
+      |                                    ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:72:36: warning: 10 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   72 |         command->SetAttribute("A", 10);
+      |                                    ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:77:9: warning: do not declare C-style arrays, use 'std::array' instead [cppcoreguidelines-avoid-c-arrays,modernize-avoid-c-arrays]
+   77 |         char name[] = "A";
+      |         ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:78:19: warning: narrowing conversion from 'int' to signed type 'char' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+   78 |         name[0] = 'A' + i;
+      |                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:79:31: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay]
+   79 |         command->SetAttribute(name, tokens[i].c_str());
+      |                               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:87:15: warning: variable name 'c' is too short, expected at least 3 characters [readability-identifier-length]
+   87 |     for (char c : line)
+      |               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:111:24: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  111 | std::string Assembler::CompileLine(const std::vector<std::string> &tokens)
+      | ~~~~~~~~~~~            ^                                                  
+      | auto                                                                       -> std::string
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:122:18: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  122 |         IntToBit(26, command, 0, 5);
+      |                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:122:34: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  122 |         IntToBit(26, command, 0, 5);
+      |                                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:123:49: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  123 |         IntToBit(std::stoi(tokens[1]), command, 5, 24);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:123:52: warning: 24 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  123 |         IntToBit(std::stoi(tokens[1]), command, 5, 24);
+      |                                                    ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:124:49: warning: 24 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  124 |         IntToBit(std::stoi(tokens[2]), command, 24, 50);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:124:53: warning: 50 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  124 |         IntToBit(std::stoi(tokens[2]), command, 24, 50);
+      |                                                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:125:35: warning: 7 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  125 |         return BitToByte(command, 7);
+      |                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:134:33: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  134 |         IntToBit(4, command, 0, 5);
+      |                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:135:49: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  135 |         IntToBit(std::stoi(tokens[1]), command, 5, 19);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:135:52: warning: 19 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  135 |         IntToBit(std::stoi(tokens[1]), command, 5, 19);
+      |                                                    ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:136:49: warning: 19 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  136 |         IntToBit(std::stoi(tokens[2]), command, 19, 45);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:136:53: warning: 45 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  136 |         IntToBit(std::stoi(tokens[2]), command, 19, 45);
+      |                                                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:137:49: warning: 45 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  137 |         IntToBit(std::stoi(tokens[3]), command, 45, 71);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:137:53: warning: 71 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  137 |         IntToBit(std::stoi(tokens[3]), command, 45, 71);
+      |                                                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:138:35: warning: 9 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  138 |         return BitToByte(command, 9);
+      |                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:147:18: warning: 27 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  147 |         IntToBit(27, command, 0, 5);
+      |                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:147:34: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  147 |         IntToBit(27, command, 0, 5);
+      |                                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:148:49: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  148 |         IntToBit(std::stoi(tokens[1]), command, 5, 31);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:148:52: warning: 31 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  148 |         IntToBit(std::stoi(tokens[1]), command, 5, 31);
+      |                                                    ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:149:49: warning: 31 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  149 |         IntToBit(std::stoi(tokens[2]), command, 31, 57);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:149:53: warning: 57 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  149 |         IntToBit(std::stoi(tokens[2]), command, 31, 57);
+      |                                                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:150:35: warning: 8 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  150 |         return BitToByte(command, 8);
+      |                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:154:30: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  154 |         if (tokens.size() != 5)
+      |                              ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:159:18: warning: 10 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  159 |         IntToBit(10, command, 0, 5);
+      |                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:159:34: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  159 |         IntToBit(10, command, 0, 5);
+      |                                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:160:49: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  160 |         IntToBit(std::stoi(tokens[1]), command, 5, 31);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:160:52: warning: 31 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  160 |         IntToBit(std::stoi(tokens[1]), command, 5, 31);
+      |                                                    ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:161:49: warning: 31 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  161 |         IntToBit(std::stoi(tokens[2]), command, 31, 57);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:161:53: warning: 57 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  161 |         IntToBit(std::stoi(tokens[2]), command, 31, 57);
+      |                                                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:162:49: warning: 57 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  162 |         IntToBit(std::stoi(tokens[3]), command, 57, 71);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:162:53: warning: 71 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  162 |         IntToBit(std::stoi(tokens[3]), command, 57, 71);
+      |                                                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:163:49: warning: 71 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  163 |         IntToBit(std::stoi(tokens[4]), command, 71, 97);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:163:53: warning: 97 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  163 |         IntToBit(std::stoi(tokens[4]), command, 71, 97);
+      |                                                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:164:35: warning: 13 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  164 |         return BitToByte(command, 13);
+      |                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:186:24: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  186 | std::string Assembler::BitToByte(const std::bitset<MaxCommandSize> &bits, unsigned int byteSize)
+      | ~~~~~~~~~~~            ^                                                                        
+      | auto                                                                                             -> std::string
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:189:21: warning: comparison between 'signed' and 'unsigned' integers [modernize-use-integer-sign-comparison]
+    6 |     for (int i = 0; i < byteSize; ++i)
+      |                     ^ ~         
+      |                     std::cmp_less( , )
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:191:20: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+  191 |         out[i] = *(reinterpret_cast<const char*>(&bits) + MaxCommandSizeBytes - i - 1);
+      |                    ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:191:57: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  191 |         out[i] = *(reinterpret_cast<const char*>(&bits) + MaxCommandSizeBytes - i - 1);
+      |                                                         ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:191:79: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  191 |         out[i] = *(reinterpret_cast<const char*>(&bits) + MaxCommandSizeBytes - i - 1);
+      |                                                                               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Assembler.cpp:191:83: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  191 |         out[i] = *(reinterpret_cast<const char*>(&bits) + MaxCommandSizeBytes - i - 1);
+      |                                                                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:10:5: warning: assigning newly created 'gsl::owner<>' to non-owner 'unsigned char *' [cppcoreguidelines-owning-memory]
+   10 |     m_memory = new unsigned char[MemorySize];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:10:5: warning: 'm_memory' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer]
+    8 | Interpreter::Interpreter()
+      |                           
+      |                            : m_memory(new unsigned char[MemorySize])
+    9 | {
+   10 |     m_memory = new unsigned char[MemorySize];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:18:18: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   18 | int Interpreter::Execute(const std::string &codePath, const std::string &outPath, unsigned int outputStart,
+      | ~~~              ^
+      | auto
+   19 |                          unsigned int outputEnd)
+      |                                                 
+      |                                                  -> int
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:18:26: warning: 2 adjacent parameters of 'Execute' of similar type ('const std::string &') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   18 | int Interpreter::Execute(const std::string &codePath, const std::string &outPath, unsigned int outputStart,
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:18:45: note: the first parameter in the range is 'codePath'
+   18 | int Interpreter::Execute(const std::string &codePath, const std::string &outPath, unsigned int outputStart,
+      |                                             ^~~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:18:74: note: the last parameter in the range is 'outPath'
+   18 | int Interpreter::Execute(const std::string &codePath, const std::string &outPath, unsigned int outputStart,
+      |                                                                          ^~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:18:83: warning: 2 adjacent parameters of 'Execute' of similar type ('unsigned int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   18 | int Interpreter::Execute(const std::string &codePath, const std::string &outPath, unsigned int outputStart,
+      |                                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   19 |                          unsigned int outputEnd)
+      |                          ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:18:96: note: the first parameter in the range is 'outputStart'
+   18 | int Interpreter::Execute(const std::string &codePath, const std::string &outPath, unsigned int outputStart,
+      |                                                                                                ^~~~~~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:19:39: note: the last parameter in the range is 'outputEnd'
+   19 |                          unsigned int outputEnd)
+      |                                       ^~~~~~~~~
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:40:13: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+   40 |             switch (operands[0])
+      |             ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:42:22: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   42 |                 case 26:
+      |                      ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:43:21: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   43 |                     mem_i(operands[2]) = operands[1];
+      |                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:59: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:43:21: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+   43 |                     mem_i(operands[2]) = operands[1];
+      |                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:26: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                          ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:46:21: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   46 |                     m_memory[operands[3]] = m_memory[operands[2] + operands[1]];
+      |                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:46:45: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   46 |                     m_memory[operands[3]] = m_memory[operands[2] + operands[1]];
+      |                                             ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:48:22: warning: 27 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   48 |                 case 27:
+      |                      ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:49:21: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   49 |                     m_memory[operands[2]] = m_memory[operands[1]];
+      |                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:49:45: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   49 |                     m_memory[operands[2]] = m_memory[operands[1]];
+      |                                             ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:51:22: warning: 10 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   51 |                 case 10:
+      |                      ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:52:21: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:59: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:52:21: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:26: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                          ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:52:57: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                                                         ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:59: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:52:57: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                                                         ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:26: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                          ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:52:79: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                                                                               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:59: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:52:79: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                                                                               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:26: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                          ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:52:115: warning: 8 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                                                                                                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:53:30: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   53 |                             (mem_i(operands[1]) << (sizeof(int) * 8 - mem_i(operands[4]) % (sizeof(int) * 8)));
+      |                              ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:59: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:53:30: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+   53 |                             (mem_i(operands[1]) << (sizeof(int) * 8 - mem_i(operands[4]) % (sizeof(int) * 8)));
+      |                              ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:26: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                          ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:53:67: warning: 8 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   53 |                             (mem_i(operands[1]) << (sizeof(int) * 8 - mem_i(operands[4]) % (sizeof(int) * 8)));
+      |                                                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:53:71: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   53 |                             (mem_i(operands[1]) << (sizeof(int) * 8 - mem_i(operands[4]) % (sizeof(int) * 8)));
+      |                                                                       ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:59: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:53:71: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+   53 |                             (mem_i(operands[1]) << (sizeof(int) * 8 - mem_i(operands[4]) % (sizeof(int) * 8)));
+      |                                                                       ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.h:15:26: note: expanded from macro 'mem_i'
+   15 |     #define mem_i(addr) *reinterpret_cast<unsigned int*>(&m_memory[addr])
+      |                          ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:53:107: warning: 8 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   53 |                             (mem_i(operands[1]) << (sizeof(int) * 8 - mem_i(operands[4]) % (sizeof(int) * 8)));
+      |                                                                                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:71:37: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   71 |         converted << std::bitset<8>(m_memory[i]);
+      |                                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:80:19: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   80 | bool Interpreter::ReadCommand(std::ifstream &code, std::bitset<MaxCommandSize> &command)
+      | ~~~~              ^                                                                     
+      | auto                                                                                     -> bool
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:82:15: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+   82 |     code.read(reinterpret_cast<char*>(&command) + MaxCommandSizeBytes - 1, 1);
+      |               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:82:49: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   82 |     code.read(reinterpret_cast<char*>(&command) + MaxCommandSizeBytes - 1, 1);
+      |                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:82:71: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   82 |     code.read(reinterpret_cast<char*>(&command) + MaxCommandSizeBytes - 1, 1);
+      |                                                                       ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:83:15: warning: statement should be inside braces [readability-braces-around-statements]
+   83 |     if (!code) return false;
+      |               ^             
+      |                {
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:85:33: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+   85 |     unsigned int commandNum = *(reinterpret_cast<unsigned char*>(&command) + MaxCommandSizeBytes - 1) >> 3;
+      |                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:85:76: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   85 |     unsigned int commandNum = *(reinterpret_cast<unsigned char*>(&command) + MaxCommandSizeBytes - 1) >> 3;
+      |                                                                            ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:85:98: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   85 |     unsigned int commandNum = *(reinterpret_cast<unsigned char*>(&command) + MaxCommandSizeBytes - 1) >> 3;
+      |                                                                                                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:88:14: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   88 |         case 26:
+      |              ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:89:38: warning: 7 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   89 |             ReadBytes(code, command, 7);
+      |                                      ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:92:38: warning: 9 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   92 |             ReadBytes(code, command, 9);
+      |                                      ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:94:14: warning: 27 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   94 |         case 27:
+      |              ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:95:38: warning: 8 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   95 |             ReadBytes(code, command, 8);
+      |                                      ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:97:14: warning: 10 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   97 |         case 10:
+      |              ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:98:38: warning: 13 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   98 |             ReadBytes(code, command, 13);
+      |                                      ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:109:21: warning: comparison between 'signed' and 'unsigned' integers [modernize-use-integer-sign-comparison]
+    7 |     for (int i = 1; i < amount; ++i)
+      |                     ^ ~       
+      |                     std::cmp_less( , )
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:111:19: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+  111 |         code.read(reinterpret_cast<char*>(&command) + MaxCommandSizeBytes - 1 - i, 1);
+      |                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:111:53: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  111 |         code.read(reinterpret_cast<char*>(&command) + MaxCommandSizeBytes - 1 - i, 1);
+      |                                                     ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:111:75: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  111 |         code.read(reinterpret_cast<char*>(&command) + MaxCommandSizeBytes - 1 - i, 1);
+      |                                                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:111:79: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  111 |         code.read(reinterpret_cast<char*>(&command) + MaxCommandSizeBytes - 1 - i, 1);
+      |                                                                               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:118:33: warning: do not use reinterpret_cast [cppcoreguidelines-pro-type-reinterpret-cast]
+  118 |     unsigned int commandNum = *(reinterpret_cast<const unsigned char*>(&command) + MaxCommandSizeBytes - 1) >> 3;
+      |                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:118:82: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  118 |     unsigned int commandNum = *(reinterpret_cast<const unsigned char*>(&command) + MaxCommandSizeBytes - 1) >> 3;
+      |                                                                                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:118:104: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  118 |     unsigned int commandNum = *(reinterpret_cast<const unsigned char*>(&command) + MaxCommandSizeBytes - 1) >> 3;
+      |                                                                                                        ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:123:14: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  123 |         case 26:
+      |              ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:124:32: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  124 |             BitToInt(command, {5, 19, 26}, 7, 6, operands);
+      |                                ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:124:35: warning: 19 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  124 |             BitToInt(command, {5, 19, 26}, 7, 6, operands);
+      |                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:124:39: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  124 |             BitToInt(command, {5, 19, 26}, 7, 6, operands);
+      |                                       ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:124:44: warning: 7 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  124 |             BitToInt(command, {5, 19, 26}, 7, 6, operands);
+      |                                            ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:124:47: warning: 6 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  124 |             BitToInt(command, {5, 19, 26}, 7, 6, operands);
+      |                                               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:127:32: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  127 |             BitToInt(command, {5, 14, 26, 26}, 9, 1, operands);
+      |                                ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:127:35: warning: 14 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  127 |             BitToInt(command, {5, 14, 26, 26}, 9, 1, operands);
+      |                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:127:39: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  127 |             BitToInt(command, {5, 14, 26, 26}, 9, 1, operands);
+      |                                       ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:127:43: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  127 |             BitToInt(command, {5, 14, 26, 26}, 9, 1, operands);
+      |                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:127:48: warning: 9 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  127 |             BitToInt(command, {5, 14, 26, 26}, 9, 1, operands);
+      |                                                ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:129:14: warning: 27 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  129 |         case 27:
+      |              ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:130:32: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  130 |             BitToInt(command, {5, 26, 26}, 8, 7, operands);
+      |                                ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:130:35: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  130 |             BitToInt(command, {5, 26, 26}, 8, 7, operands);
+      |                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:130:39: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  130 |             BitToInt(command, {5, 26, 26}, 8, 7, operands);
+      |                                       ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:130:44: warning: 8 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  130 |             BitToInt(command, {5, 26, 26}, 8, 7, operands);
+      |                                            ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:130:47: warning: 7 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  130 |             BitToInt(command, {5, 26, 26}, 8, 7, operands);
+      |                                               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:132:14: warning: 10 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  132 |         case 10:
+      |              ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:133:32: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  133 |             BitToInt(command, {5, 26, 26, 14, 26}, 13, 7, operands);
+      |                                ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:133:35: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  133 |             BitToInt(command, {5, 26, 26, 14, 26}, 13, 7, operands);
+      |                                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:133:39: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  133 |             BitToInt(command, {5, 26, 26, 14, 26}, 13, 7, operands);
+      |                                       ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:133:43: warning: 14 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  133 |             BitToInt(command, {5, 26, 26, 14, 26}, 13, 7, operands);
+      |                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:133:47: warning: 26 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  133 |             BitToInt(command, {5, 26, 26, 14, 26}, 13, 7, operands);
+      |                                               ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:133:52: warning: 13 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  133 |             BitToInt(command, {5, 26, 26, 14, 26}, 13, 7, operands);
+      |                                                    ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:133:56: warning: 7 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  133 |             BitToInt(command, {5, 26, 26, 14, 26}, 13, 7, operands);
+      |                                                        ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:144:34: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  144 |     command >>= MaxCommandSize - byteSize * 8 + remainder;
+      |                                  ^~~~~~~~~~~~
+      |                                  (           )
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:144:45: warning: 8 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  144 |     command >>= MaxCommandSize - byteSize * 8 + remainder;
+      |                                             ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\Interpreter.cpp:149:18: warning: narrowing conversion from 'size_type' (aka 'unsigned long long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+  149 |     for (int i = sizes.size() - 1; i > 0; --i)
+      |                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\asm.cpp:5:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
+    5 | int main(int argc, char** argv)
+      |     ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xiosbase:184:13: note: frame #0: unhandled exception of type 'std::ios_base::failure' may be thrown in function 'clear' here
+  184 |             _THROW(failure(_Msg));
+      |             ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\yvals.h:483:19: note: expanded from macro '_THROW'
+  483 | #define _THROW(x) throw x
+      |                   ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ios:41:9: note: frame #1: function 'clear' calls function 'clear' here
+   41 |         ios_base::clear(_State | (_Mystrbuf ? ios_base::_Iostate{} : ios_base::badbit), _Reraise);
+      |         ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ios:52:9: note: frame #2: function 'setstate' calls function 'clear' here
+   52 |         clear(rdstate() | _State, _Reraise);
+      |         ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ostream:572:17: note: frame #3: function 'flush' calls function 'setstate' here
+  572 |                 _CATCH_IO_END
+      |                 ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\iosfwd:31:9: note: expanded from macro '_CATCH_IO_END'
+   31 |         _Myios::setstate(ios_base::badbit, true); /* set badbit and rethrow */ \
+      |         ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ostream:109:13: note: frame #4: function 'sentry' calls function 'flush' here
+  109 |             _Tied->flush();
+      |             ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ostream:775:34: note: frame #5: function 'operator<<<std::char_traits<char>>' calls function 'sentry' here
+  775 |     const typename _Myos::sentry _Ok(_Ostr);
+      |                                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\asm.cpp:9:19: note: frame #6: function 'main' calls function 'operator<<<std::char_traits<char>>' here
+    9 |         std::cerr << "Not enough arguments. The assembler takes:\n"
+      |                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\asm.cpp:5:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+    5 | int main(int argc, char** argv)
+      | ~~~ ^                          
+      | auto                            -> int
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\asm.cpp:16:18: warning: statement should be inside braces [readability-braces-around-statements]
+   16 |     if (argc > 3) logPath = std::string(argv[3]);
+      |                  ^                               
+      |                   {
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\asm.cpp:16:41: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   16 |     if (argc > 3) logPath = std::string(argv[3]);
+      |                                         ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\asm.cpp:17:43: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   17 |     return Assembler::Compile(std::string(argv[1]), std::string(argv[2]), logPath);
+      |                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\asm.cpp:17:65: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   17 |     return Assembler::Compile(std::string(argv[1]), std::string(argv[2]), logPath);
+      |                                                                 ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\int.cpp:5:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
+    5 | int main(int argc, char** argv)
+      |     ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xiosbase:184:13: note: frame #0: unhandled exception of type 'std::ios_base::failure' may be thrown in function 'clear' here
+  184 |             _THROW(failure(_Msg));
+      |             ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\yvals.h:483:19: note: expanded from macro '_THROW'
+  483 | #define _THROW(x) throw x
+      |                   ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ios:41:9: note: frame #1: function 'clear' calls function 'clear' here
+   41 |         ios_base::clear(_State | (_Mystrbuf ? ios_base::_Iostate{} : ios_base::badbit), _Reraise);
+      |         ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ios:52:9: note: frame #2: function 'setstate' calls function 'clear' here
+   52 |         clear(rdstate() | _State, _Reraise);
+      |         ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ostream:572:17: note: frame #3: function 'flush' calls function 'setstate' here
+  572 |                 _CATCH_IO_END
+      |                 ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\iosfwd:31:9: note: expanded from macro '_CATCH_IO_END'
+   31 |         _Myios::setstate(ios_base::badbit, true); /* set badbit and rethrow */ \
+      |         ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ostream:109:13: note: frame #4: function 'sentry' calls function 'flush' here
+  109 |             _Tied->flush();
+      |             ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\ostream:775:34: note: frame #5: function 'operator<<<std::char_traits<char>>' calls function 'sentry' here
+  775 |     const typename _Myos::sentry _Ok(_Ostr);
+      |                                  ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\int.cpp:9:19: note: frame #6: function 'main' calls function 'operator<<<std::char_traits<char>>' here
+    9 |         std::cerr << "Not enough arguments. The interpreter takes:\n"
+      |                   ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\int.cpp:5:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+    5 | int main(int argc, char** argv)
+      | ~~~ ^                          
+      | auto                            -> int
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\int.cpp:7:16: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+    7 |     if (argc < 5)
+      |                ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\int.cpp:17:32: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   17 |     return interpreter.Execute(argv[1], argv[2],std::stoi(argv[3]),
+      |                                ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\int.cpp:17:41: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   17 |     return interpreter.Execute(argv[1], argv[2],std::stoi(argv[3]),
+      |                                         ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\int.cpp:17:59: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   17 |     return interpreter.Execute(argv[1], argv[2],std::stoi(argv[3]),
+      |                                                           ^
+C:\Users\krezon\Education\Sem5\Testing\Pract4\Proj2\src\int.cpp:18:42: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   18 |                                std::stoi(argv[4]));
+      |                                          ^

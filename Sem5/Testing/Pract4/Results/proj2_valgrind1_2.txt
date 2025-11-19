@@ -1,0 +1,24 @@
+==7781== Memcheck, a memory error detector
+==7781== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==7781== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==7781== Command: ./build/Release/int ./Test/bin.edc ./Test/out.xml 0 50
+==7781== Parent PID: 5627
+==7781== 
+==7781== Conditional jump or move depends on uninitialised value(s)
+==7781==    at 0x11003C: void std::bitset<8ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char, char) const (in /mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/build/Release/int)
+==7781==    by 0x10E350: Interpreter::Execute(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, unsigned int) (in /mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/build/Release/int)
+==7781==    by 0x10CDA6: main (in /mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/build/Release/int)
+==7781==  Uninitialised value was created by a heap allocation
+==7781==    at 0x48485C3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7781==    by 0x10D141: Interpreter::Interpreter() (in /mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/build/Release/int)
+==7781==    by 0x10CCF5: main (in /mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/build/Release/int)
+==7781== 
+==7781== 
+==7781== HEAP SUMMARY:
+==7781==     in use at exit: 0 bytes in 0 blocks
+==7781==   total heap usage: 120 allocs, 120 frees, 67,209,233 bytes allocated
+==7781== 
+==7781== All heap blocks were freed -- no leaks are possible
+==7781== 
+==7781== For lists of detected and suppressed errors, rerun with: -s
+==7781== ERROR SUMMARY: 36 errors from 1 contexts (suppressed: 0 from 0)

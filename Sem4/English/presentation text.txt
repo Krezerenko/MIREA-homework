@@ -1,0 +1,23 @@
+Introduction
+SearXNG is a powerful, privacy-focused metasearch engine that is freely available to users worldwide. It originated as a fork of SearX, another popular metasearch engine. Like its predecessor, SearXNG does not collect or store personal information. This makes it a great choice for individuals who value anonymity and data security while browsing the web.
+76 / 4
+
+History and Development
+The story of SearXNG began in mid-2021 when a group of contributors from the SearX project decided to create a new fork. Their goal was to address some of the limitations of SearX, particularly in terms of debugging speed and the resolution of engine errors. Among the most significant changes introduced in SearXNG are enhanced user themes, improved engine reliability, and the addition of anonymous metrics to help developers refine the platform without compromising user privacy.
+76 / 3
+
+Instances and Hosting
+One of the standout features of SearXNG is its federated nature. This means it operates through a network of instances, both public and private, that adhere to shared standards of operation. Private instances are typically hosted on local networks or even on a user’s personal computer, making them ideal for individual or small-group use. Public instances, on the other hand, function much like usual search engines, since they are hosted on web servers and are accessible to anyone. For those interested in using a public instance, a comprehensive list is available on the searx.space website.
+94 / 6
+
+Key Features
+SearXNG offers a variety of features that set it apart from conventional search engines. One of its most notable capabilities is categorical searching, which allows users to filter results into specific categories. These include standard options like "Web," "Images," "Videos," and "News," as well as more specialized categories such as "Social Media", "Music", "Files", "IT", and "Science". This level of organization makes it easier for users to find exactly what they’re looking for without sifting through irrelevant results.
+78 / 4
+
+Search Engines and Integration
+As a metasearch engine, SearXNG works by sending user queries to multiple upstream search engines and then compiling the results. It supports a wide range of search engines, including popular ones like Google, Bing, DuckDuckGo, and Qwant. In total, SearXNG integrates with over 70 different search engines.
+47 / 3
+
+Privacy and Security
+Privacy is at the core of SearXNG’s design philosophy. The platform takes significant steps to protect user data by removing private information from requests sent to search services. Additionally, SearXNG itself stores minimal data, ensuring that there is little to no information that could be used to identify individual users. This commitment to privacy makes SearXNG an attractive option for those who are concerned about data tracking and surveillance.
+69 / 4

@@ -1,0 +1,986 @@
+{
+  "id": "0",
+  "name": "Контрольная",
+  "createdAt": "2025-05-16T14:52:16.621Z",
+  "updatedAt": "2025-05-16T14:52:16.621Z",
+  "databaseType": "generic",
+  "tables": [
+    {
+      "id": "1",
+      "name": "турнир",
+      "x": -1500,
+      "y": -280,
+      "fields": [
+        {
+          "id": "2",
+          "name": "id_турнир",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747402334818
+        },
+        {
+          "id": "3",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747402401612
+        },
+        {
+          "id": "4",
+          "name": "id_вид_спорта",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747402470365
+        },
+        {
+          "id": "5",
+          "name": "дата_начала",
+          "type": {
+            "name": "date",
+            "id": "date"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747402623827
+        },
+        {
+          "id": "6",
+          "name": "дата_конца",
+          "type": {
+            "name": "date",
+            "id": "date"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747402736394
+        }
+      ],
+      "indexes": [],
+      "color": "#42e0c0",
+      "createdAt": 1747402334818,
+      "isView": false,
+      "order": 0
+    },
+    {
+      "id": "7",
+      "name": "команда",
+      "x": -1200,
+      "y": -620,
+      "fields": [
+        {
+          "id": "8",
+          "name": "id_команда",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747402394290
+        },
+        {
+          "id": "9",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747402801067
+        },
+        {
+          "id": "10",
+          "name": "id_тренер",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747402813272
+        },
+        {
+          "id": "11",
+          "name": "номер_телефона",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747403011199
+        }
+      ],
+      "indexes": [],
+      "color": "#ff9f74",
+      "createdAt": 1747402394290,
+      "isView": false,
+      "order": 1
+    },
+    {
+      "id": "12",
+      "name": "вид_спорта",
+      "x": -1500,
+      "y": -40,
+      "fields": [
+        {
+          "id": "13",
+          "name": "id_вид_спорта",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747402394460
+        },
+        {
+          "id": "14",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747402858370
+        }
+      ],
+      "indexes": [],
+      "color": "#ff9f74",
+      "createdAt": 1747402394460,
+      "isView": false,
+      "order": 2
+    },
+    {
+      "id": "15",
+      "name": "игрок",
+      "x": -900,
+      "y": -340,
+      "fields": [
+        {
+          "id": "16",
+          "name": "id_игрок",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747402394636
+        },
+        {
+          "id": "17",
+          "name": "имя",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747403150679
+        },
+        {
+          "id": "18",
+          "name": "фамилия",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747403164593
+        },
+        {
+          "id": "19",
+          "name": "id_роль",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747403209544
+        },
+        {
+          "id": "20",
+          "name": "дата_рождения",
+          "type": {
+            "name": "date",
+            "id": "date"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747403196257
+        },
+        {
+          "id": "21",
+          "name": "отчество",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1747403165946
+        }
+      ],
+      "indexes": [],
+      "color": "#ff6363",
+      "createdAt": 1747402394636,
+      "isView": false,
+      "order": 3
+    },
+    {
+      "id": "22",
+      "name": "тренер",
+      "x": -1200,
+      "y": -440,
+      "fields": [
+        {
+          "id": "23",
+          "name": "id_тренер",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747402395018
+        },
+        {
+          "id": "24",
+          "name": "имя",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747403569999
+        },
+        {
+          "id": "25",
+          "name": "фамилия",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747403575716
+        },
+        {
+          "id": "26",
+          "name": "отчество",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1747403581249
+        }
+      ],
+      "indexes": [],
+      "color": "#ff6b8a",
+      "createdAt": 1747402395018,
+      "isView": false,
+      "order": 5
+    },
+    {
+      "id": "27",
+      "name": "роль_игрока",
+      "x": -900,
+      "y": -80,
+      "fields": [
+        {
+          "id": "28",
+          "name": "id_роль_игрока",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747403614111
+        },
+        {
+          "id": "29",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747403627612
+        }
+      ],
+      "indexes": [],
+      "color": "#42e0c0",
+      "createdAt": 1747403614111,
+      "isView": false,
+      "order": 5
+    },
+    {
+      "id": "30",
+      "name": "состав_команды",
+      "x": -880,
+      "y": -500,
+      "fields": [
+        {
+          "id": "31",
+          "name": "id_команда",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747403720962
+        },
+        {
+          "id": "32",
+          "name": "id_игрок",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747403784744
+        },
+        {
+          "id": "33",
+          "name": "дата_вступления",
+          "type": {
+            "name": "date",
+            "id": "date"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1747403800709
+        }
+      ],
+      "indexes": [],
+      "color": "#42e0c0",
+      "createdAt": 1747403720963,
+      "isView": false,
+      "order": 6
+    },
+    {
+      "id": "34",
+      "name": "стадион",
+      "x": -1200,
+      "y": 0,
+      "fields": [
+        {
+          "id": "35",
+          "name": "id_стадион",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747403721292
+        },
+        {
+          "id": "36",
+          "name": "id_город",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747404516555
+        },
+        {
+          "id": "37",
+          "name": "количество_мест",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747404545740
+        }
+      ],
+      "indexes": [],
+      "color": "#4dee8a",
+      "createdAt": 1747403721292,
+      "isView": false,
+      "order": 7
+    },
+    {
+      "id": "38",
+      "name": "город",
+      "x": -900,
+      "y": 40,
+      "fields": [
+        {
+          "id": "39",
+          "name": "id_город",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747403721466
+        },
+        {
+          "id": "40",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747404606386
+        }
+      ],
+      "indexes": [],
+      "color": "#c05dcf",
+      "createdAt": 1747403721466,
+      "isView": false,
+      "order": 8
+    },
+    {
+      "id": "41",
+      "name": "судья",
+      "x": -1780,
+      "y": -400,
+      "fields": [
+        {
+          "id": "42",
+          "name": "id_судья",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747403721666
+        },
+        {
+          "id": "43",
+          "name": "имя",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747404679434
+        },
+        {
+          "id": "44",
+          "name": "фамилия",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747404691716
+        },
+        {
+          "id": "45",
+          "name": "отчество",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1747404693567
+        },
+        {
+          "id": "46",
+          "name": "id_категория",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747404720134
+        }
+      ],
+      "indexes": [],
+      "color": "#42e0c0",
+      "createdAt": 1747403721666,
+      "isView": false,
+      "order": 9
+    },
+    {
+      "id": "47",
+      "name": "категория_судьи",
+      "x": -1780,
+      "y": -180,
+      "fields": [
+        {
+          "id": "48",
+          "name": "id_категория",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747404743650
+        },
+        {
+          "id": "49",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747404790832
+        }
+      ],
+      "indexes": [],
+      "color": "#b067e9",
+      "createdAt": 1747404743650,
+      "isView": false,
+      "order": 10
+    },
+    {
+      "id": "50",
+      "name": "матч",
+      "x": -1500,
+      "y": -460,
+      "fields": [
+        {
+          "id": "51",
+          "name": "id_матч",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747404819229
+        },
+        {
+          "id": "52",
+          "name": "id_турнир",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747405248951
+        },
+        {
+          "id": "53",
+          "name": "дата",
+          "type": {
+            "name": "date",
+            "id": "date"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747405256718
+        },
+        {
+          "id": "54",
+          "name": "время",
+          "type": {
+            "name": "time",
+            "id": "time"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747405271285
+        }
+      ],
+      "indexes": [],
+      "color": "#7175fa",
+      "createdAt": 1747404819229,
+      "isView": false,
+      "order": 11
+    },
+    {
+      "id": "55",
+      "name": "состав_матча",
+      "x": -1500,
+      "y": -580,
+      "fields": [
+        {
+          "id": "56",
+          "name": "id_матч",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747405598557
+        },
+        {
+          "id": "57",
+          "name": "id_команда",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747405614657
+        }
+      ],
+      "indexes": [],
+      "color": "#ff9f74",
+      "createdAt": 1747405598557,
+      "isView": false,
+      "order": 12
+    },
+    {
+      "id": "58",
+      "name": "судейство",
+      "x": -1780,
+      "y": -520,
+      "fields": [
+        {
+          "id": "59",
+          "name": "id_судья",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747405725552
+        },
+        {
+          "id": "60",
+          "name": "id_матч",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747405762886
+        }
+      ],
+      "indexes": [],
+      "color": "#42e0c0",
+      "createdAt": 1747405725552,
+      "isView": false,
+      "order": 13
+    },
+    {
+      "id": "61",
+      "name": "статистика_игрока",
+      "x": -1240,
+      "y": -260,
+      "fields": [
+        {
+          "id": "62",
+          "name": "id_игрок",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747405893982
+        },
+        {
+          "id": "63",
+          "name": "id_матч",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1747406009427
+        },
+        {
+          "id": "64",
+          "name": "количество_голов",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747406023446
+        },
+        {
+          "id": "65",
+          "name": "количество_передач",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747406049194
+        },
+        {
+          "id": "66",
+          "name": "количество_желтых_карточек",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747406069224
+        },
+        {
+          "id": "67",
+          "name": "количество_красных_карточек",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1747406097393
+        }
+      ],
+      "indexes": [],
+      "color": "#b067e9",
+      "createdAt": 1747405893982,
+      "isView": false,
+      "order": 14,
+      "width": 284
+    }
+  ],
+  "relationships": [
+    {
+      "id": "68",
+      "name": "состав_команды_id_команды_fk",
+      "sourceTableId": "30",
+      "targetTableId": "7",
+      "sourceFieldId": "31",
+      "targetFieldId": "8",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747403903177
+    },
+    {
+      "id": "69",
+      "name": "состав_команды_id_игрока_fk",
+      "sourceTableId": "30",
+      "targetTableId": "15",
+      "sourceFieldId": "32",
+      "targetFieldId": "16",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747404010166
+    },
+    {
+      "id": "70",
+      "name": "судья_id_категория_fk",
+      "sourceTableId": "41",
+      "targetTableId": "47",
+      "sourceFieldId": "46",
+      "targetFieldId": "48",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747404850330
+    },
+    {
+      "id": "71",
+      "name": "игрок_id_роль_fk",
+      "sourceTableId": "15",
+      "targetTableId": "27",
+      "sourceFieldId": "19",
+      "targetFieldId": "28",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747404943528
+    },
+    {
+      "id": "72",
+      "name": "турнир_id_вид_спорта_fk",
+      "sourceTableId": "1",
+      "targetTableId": "12",
+      "sourceFieldId": "4",
+      "targetFieldId": "13",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747405067817
+    },
+    {
+      "id": "73",
+      "name": "стадион_id_город_fk",
+      "sourceTableId": "34",
+      "targetTableId": "38",
+      "sourceFieldId": "36",
+      "targetFieldId": "39",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747405142043
+    },
+    {
+      "id": "74",
+      "name": "команда_id_тренер_fk",
+      "sourceTableId": "7",
+      "targetTableId": "22",
+      "sourceFieldId": "10",
+      "targetFieldId": "23",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1747405169660
+    },
+    {
+      "id": "75",
+      "name": "матч_id_турнир_fk",
+      "sourceTableId": "50",
+      "targetTableId": "1",
+      "sourceFieldId": "52",
+      "targetFieldId": "2",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747405411304
+    },
+    {
+      "id": "76",
+      "name": "состав_матча_id_команда_fk",
+      "sourceTableId": "55",
+      "targetTableId": "7",
+      "sourceFieldId": "57",
+      "targetFieldId": "8",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747405641806
+    },
+    {
+      "id": "77",
+      "name": "состав_матча_id_матч_fk",
+      "sourceTableId": "55",
+      "targetTableId": "50",
+      "sourceFieldId": "56",
+      "targetFieldId": "51",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747405652123
+    },
+    {
+      "id": "78",
+      "name": "судейство_id_матч_fk",
+      "sourceTableId": "58",
+      "targetTableId": "50",
+      "sourceFieldId": "60",
+      "targetFieldId": "51",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747405832214
+    },
+    {
+      "id": "79",
+      "name": "судейство_id_судья_fk",
+      "sourceTableId": "58",
+      "targetTableId": "41",
+      "sourceFieldId": "59",
+      "targetFieldId": "42",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747405846606
+    },
+    {
+      "id": "80",
+      "name": "статистика_игрока_id_матч_fk",
+      "sourceTableId": "61",
+      "targetTableId": "50",
+      "sourceFieldId": "63",
+      "targetFieldId": "51",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747406275241
+    },
+    {
+      "id": "81",
+      "name": "статистика_игрока_id_игрок_fk",
+      "sourceTableId": "61",
+      "targetTableId": "15",
+      "sourceFieldId": "62",
+      "targetFieldId": "16",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1747406285155
+    }
+  ],
+  "dependencies": []
+}

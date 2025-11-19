@@ -1,0 +1,2 @@
+************* Module ex2
+ex2.py:79:15: E0001: Parsing failed: 'expected ':' (ex2, line 79)' (syntax-error)

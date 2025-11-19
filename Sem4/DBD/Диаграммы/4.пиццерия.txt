@@ -1,0 +1,94 @@
+
+
+CREATE TABLE Поставщик (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Пиццерия (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Должность (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Сотрудник (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Заказ (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Документ (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Блюдо (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Склад (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Транзакция (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Адрес (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Клиент (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Отзыв на блюдо (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Отзыв на приложение (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Категория блюд (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+CREATE TABLE Ингредиент (
+  id bigint NOT NULL PRIMARY KEY
+);
+
+
+ALTER TABLE Должность ADD CONSTRAINT Должность_id_fk FOREIGN KEY (id) REFERENCES Сотрудник (id);
+ALTER TABLE Клиент ADD CONSTRAINT Клиент_id_fk FOREIGN KEY (id) REFERENCES Адрес (id);
+ALTER TABLE Транзакция ADD CONSTRAINT Транзакция_id_fk FOREIGN KEY (id) REFERENCES Заказ (id);
+ALTER TABLE Отзыв на приложение ADD CONSTRAINT Отзыв на приложение_id_fk FOREIGN KEY (id) REFERENCES Клиент (id);
+ALTER TABLE Отзыв на блюдо ADD CONSTRAINT Отзыв на блюдо_id_fk FOREIGN KEY (id) REFERENCES Клиент (id);
+ALTER TABLE Блюдо ADD CONSTRAINT Тип блюда_id_fk FOREIGN KEY (id) REFERENCES Отзыв на блюдо (id);
+ALTER TABLE Блюдо ADD CONSTRAINT Тип блюда_id_fk FOREIGN KEY (id) REFERENCES Заказ (id);
+ALTER TABLE Категория блюд ADD CONSTRAINT Категория блюд_id_fk FOREIGN KEY (id) REFERENCES Блюдо (id);
+ALTER TABLE Клиент ADD CONSTRAINT Клиент_id_fk FOREIGN KEY (id) REFERENCES Заказ (id);
+ALTER TABLE Склад ADD CONSTRAINT Ингредиент в наличии_id_fk FOREIGN KEY (id) REFERENCES Пиццерия (id);
+ALTER TABLE Сотрудник ADD CONSTRAINT Сотрудник_id_fk FOREIGN KEY (id) REFERENCES Документ (id);
+ALTER TABLE Документ ADD CONSTRAINT Документ_id_fk FOREIGN KEY (id) REFERENCES Заказ (id);
+ALTER TABLE Сотрудник ADD CONSTRAINT Сотрудник_id_fk FOREIGN KEY (id) REFERENCES Пиццерия (id);
+ALTER TABLE Сотрудник ADD CONSTRAINT Сотрудник_id_fk FOREIGN KEY (id) REFERENCES Заказ (id);
+ALTER TABLE Ингредиент ADD CONSTRAINT Ингредиент_id_fk FOREIGN KEY (id) REFERENCES Склад (id);
+ALTER TABLE Ингредиент ADD CONSTRAINT Ингредиент_id_fk FOREIGN KEY (id) REFERENCES Поставщик (id);
+ALTER TABLE Ингредиент ADD CONSTRAINT Ингредиент_id_fk FOREIGN KEY (id) REFERENCES Блюдо (id);

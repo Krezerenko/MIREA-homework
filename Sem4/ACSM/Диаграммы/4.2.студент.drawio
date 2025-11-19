@@ -1,0 +1,70 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
+  <diagram name="Страница — 1" id="du0M0qmqJrZy3DEdznR1">
+    <mxGraphModel dx="1221" dy="717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="maGM29v-Q1R0giKsSVNm-18" value="Студент" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="64" y="80" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-24" value="Форма записи на курс" style="shape=umlBoundary;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="234" y="70" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-25" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" edge="1" parent="1" source="maGM29v-Q1R0giKsSVNm-18" target="maGM29v-Q1R0giKsSVNm-24">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="104" y="25" as="sourcePoint" />
+            <mxPoint x="264" y="25" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-26" value="История курса" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="684" y="70" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-27" value="Слушатель" style="ellipse;shape=umlControl;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="459" y="70" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-29" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" edge="1" parent="1" source="maGM29v-Q1R0giKsSVNm-24" target="maGM29v-Q1R0giKsSVNm-27">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="314" y="-135" as="sourcePoint" />
+            <mxPoint x="474" y="-135" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-30" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" edge="1" parent="1" source="maGM29v-Q1R0giKsSVNm-27" target="maGM29v-Q1R0giKsSVNm-26">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="534" y="35" as="sourcePoint" />
+            <mxPoint x="694" y="35" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-32" value="1: записатьсяНаКурс(user,&amp;nbsp;&lt;div&gt;номерКурса)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="134" y="95" as="sourcePoint" />
+            <mxPoint x="214" y="95" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-33" value="2: передатьДанные(user,&amp;nbsp;&lt;div&gt;номерКурса)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="354" y="95" as="sourcePoint" />
+            <mxPoint x="434" y="95" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-34" value="3: запроситьСтатусГотовности(&lt;div&gt;user, номерКурса)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="564" y="95" as="sourcePoint" />
+            <mxPoint x="644" y="95" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-35" value="5: вывестиСтатусЗаписи(&lt;div&gt;status)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="430" y="149" as="sourcePoint" />
+            <mxPoint x="350" y="149" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="maGM29v-Q1R0giKsSVNm-36" value="4: return :status" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="640" y="140" as="sourcePoint" />
+            <mxPoint x="560" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

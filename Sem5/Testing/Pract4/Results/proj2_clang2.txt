@@ -1,0 +1,42 @@
+src\Assembler.cpp:107:27: error: expected ';' after expression
+  107 |     out.erase(out.begin()) // error 2
+      |                           ^
+      |                           ;
+1 error generated.
+src\Interpreter.cpp:43:21: error: static_cast from 'unsigned char *' to 'unsigned int *' is not allowed
+   43 |                     mem_i(operands[2]) = operands[1];
+      |                     ^~~~~~~~~~~~~~~~~~
+src\Interpreter.h:16:26: note: expanded from macro 'mem_i'
+   16 |     #define mem_i(addr) *static_cast<unsigned int*>(&m_memory[addr]) // error 4
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\Interpreter.cpp:52:21: error: static_cast from 'unsigned char *' to 'unsigned int *' is not allowed
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\Interpreter.h:16:26: note: expanded from macro 'mem_i'
+   16 |     #define mem_i(addr) *static_cast<unsigned int*>(&m_memory[addr]) // error 4
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\Interpreter.cpp:52:57: error: static_cast from 'unsigned char *' to 'unsigned int *' is not allowed
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                                                         ^~~~~~~~~~~~~~~~~~
+src\Interpreter.h:16:26: note: expanded from macro 'mem_i'
+   16 |     #define mem_i(addr) *static_cast<unsigned int*>(&m_memory[addr]) // error 4
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\Interpreter.cpp:52:79: error: static_cast from 'unsigned char *' to 'unsigned int *' is not allowed
+   52 |                     mem_i(operands[2] + operands[3]) = (mem_i(operands[1]) >> mem_i(operands[4]) % (sizeof(int) * 8)) |
+      |                                                                               ^~~~~~~~~~~~~~~~~~
+src\Interpreter.h:16:26: note: expanded from macro 'mem_i'
+   16 |     #define mem_i(addr) *static_cast<unsigned int*>(&m_memory[addr]) // error 4
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\Interpreter.cpp:53:30: error: static_cast from 'unsigned char *' to 'unsigned int *' is not allowed
+   53 |                             (mem_i(operands[1]) << (sizeof(int) * 8 - mem_i(operands[4]) % (sizeof(int) * 8)));
+      |                              ^~~~~~~~~~~~~~~~~~
+src\Interpreter.h:16:26: note: expanded from macro 'mem_i'
+   16 |     #define mem_i(addr) *static_cast<unsigned int*>(&m_memory[addr]) // error 4
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\Interpreter.cpp:53:71: error: static_cast from 'unsigned char *' to 'unsigned int *' is not allowed
+   53 |                             (mem_i(operands[1]) << (sizeof(int) * 8 - mem_i(operands[4]) % (sizeof(int) * 8)));
+      |                                                                       ^~~~~~~~~~~~~~~~~~
+src\Interpreter.h:16:26: note: expanded from macro 'mem_i'
+   16 |     #define mem_i(addr) *static_cast<unsigned int*>(&m_memory[addr]) // error 4
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+6 errors generated.

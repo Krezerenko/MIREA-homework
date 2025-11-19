@@ -1,0 +1,13 @@
+A pizzeria mobile app with the following pages:
+- Profile with pfp, loyalty program info, settings
+- Basket, where you can edit your order and go to the order page
+- Order, where you can set all the necessary info to make the order (payment method, address, etc.). Here you also can repeat a previous order and track your current order
+- Menu, with the following categories:
+-- Recommended
+-- New
+-- Discounts
+-- Combos
+-- Pizza (you can change ingredients)
+-- Snacks
+-- Bewerages
+-- Make your own pizza

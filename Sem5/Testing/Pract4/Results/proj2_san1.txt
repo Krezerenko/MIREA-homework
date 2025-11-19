@@ -1,0 +1,24 @@
+/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/src/Interpreter.cpp:43:40: runtime error: store to misaligned address 0x7776467ff80f for type 'unsigned int', which requires 4 byte alignment
+0x7776467ff80f: note: pointer points here
+ be be be be be  be be be be be be be be  be be be be be be be be  be be be be be be be be  be be be
+             ^ 
+/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/src/Interpreter.cpp:52:57: runtime error: load of misaligned address 0x7776467ff80f for type 'unsigned int', which requires 4 byte alignment
+0x7776467ff80f: note: pointer points here
+ be be be be 05  00 00 00 05 05 01 00 00  00 be be be be be be be  be be be be be be be be  be be be
+             ^ 
+/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/src/Interpreter.cpp:52:79: runtime error: load of misaligned address 0x7776467ff815 for type 'unsigned int', which requires 4 byte alignment
+0x7776467ff815: note: pointer points here
+ 00 00 05 05 01 00 00  00 be be be be be be be  be be be be be be be be  be be be be be be be be  be
+             ^ 
+/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/src/Interpreter.cpp:53:30: runtime error: load of misaligned address 0x7776467ff80f for type 'unsigned int', which requires 4 byte alignment
+0x7776467ff80f: note: pointer points here
+ be be be be 05  00 00 00 05 05 01 00 00  00 be be be be be be be  be be be be be be be be  be be be
+             ^ 
+/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/src/Interpreter.cpp:53:71: runtime error: load of misaligned address 0x7776467ff815 for type 'unsigned int', which requires 4 byte alignment
+0x7776467ff815: note: pointer points here
+ 00 00 05 05 01 00 00  00 be be be be be be be  be be be be be be be be  be be be be be be be be  be
+             ^ 
+/mnt/c/Users/krezo/Education/Sem5/Testing/Pract4/Proj2/src/Interpreter.cpp:52:54: runtime error: store to misaligned address 0x7776467ff819 for type 'unsigned int', which requires 4 byte alignment
+0x7776467ff819: note: pointer points here
+ 01 00 00  00 be be be be be be be  be be be be be be be be  be be be be be be be be  be be be be be
+              ^ 

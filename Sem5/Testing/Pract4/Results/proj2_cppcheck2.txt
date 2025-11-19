@@ -1,0 +1,6 @@
+src\Assembler.cpp:76:11: error: Division by zero. [zerodiv]
+        i / (i - i); // error 1
+          ^
+src\Interpreter.cpp:40:29: error: Out of bounds access in expression 'operands[0]' because 'operands' is empty. [containerOutOfBounds]
+            switch (operands[0])
+                            ^

@@ -1,0 +1,876 @@
+{
+  "id": "0",
+  "name": "Контрольная 2",
+  "createdAt": "2025-05-30T14:44:33.614Z",
+  "updatedAt": "2025-05-30T14:44:33.614Z",
+  "databaseType": "generic",
+  "tables": [
+    {
+      "id": "1",
+      "name": "автомобиль",
+      "x": -980,
+      "y": -380,
+      "fields": [
+        {
+          "id": "2",
+          "name": "id_автомобиль",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748613090117
+        },
+        {
+          "id": "3",
+          "name": "id_марка",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613157893
+        },
+        {
+          "id": "4",
+          "name": "модель",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613183534
+        },
+        {
+          "id": "5",
+          "name": "год_выпуска",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613214673
+        },
+        {
+          "id": "6",
+          "name": "номерной_знак",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613227572
+        },
+        {
+          "id": "7",
+          "name": "id_статус",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613238234
+        },
+        {
+          "id": "8",
+          "name": "id_тип_автомобиля",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1748613425210
+        }
+      ],
+      "indexes": [],
+      "color": "#ffe374",
+      "createdAt": 1748613090117,
+      "isView": false,
+      "order": 0
+    },
+    {
+      "id": "9",
+      "name": "статус_автомобиля",
+      "x": -640,
+      "y": -220,
+      "fields": [
+        {
+          "id": "10",
+          "name": "id_статус_автомобиля",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748613258999
+        },
+        {
+          "id": "11",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613280967
+        }
+      ],
+      "indexes": [],
+      "color": "#8a61f5",
+      "createdAt": 1748613258999,
+      "isView": false,
+      "order": 1
+    },
+    {
+      "id": "12",
+      "name": "тип_автомобиля",
+      "x": -980,
+      "y": -540,
+      "fields": [
+        {
+          "id": "13",
+          "name": "id_тип_автомобиля",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748613362304
+        },
+        {
+          "id": "14",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613409335
+        }
+      ],
+      "indexes": [],
+      "color": "#4dee8a",
+      "createdAt": 1748613362304,
+      "isView": false,
+      "order": 2
+    },
+    {
+      "id": "15",
+      "name": "клиент",
+      "x": -640,
+      "y": -1020,
+      "fields": [
+        {
+          "id": "16",
+          "name": "id_клиент",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748613467627
+        },
+        {
+          "id": "17",
+          "name": "фамилия",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613497794
+        },
+        {
+          "id": "18",
+          "name": "имя",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613526148
+        },
+        {
+          "id": "19",
+          "name": "отчество",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1748613529793
+        },
+        {
+          "id": "20",
+          "name": "номер_водительских_прав",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613545931
+        },
+        {
+          "id": "21",
+          "name": "номер_телефона",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748613992512
+        }
+      ],
+      "indexes": [],
+      "color": "#ffe374",
+      "createdAt": 1748613467627,
+      "isView": false,
+      "order": 3
+    },
+    {
+      "id": "22",
+      "name": "бронь",
+      "x": -960,
+      "y": -820,
+      "fields": [
+        {
+          "id": "23",
+          "name": "id_бронь",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748615532757
+        },
+        {
+          "id": "24",
+          "name": "id_клиент",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614058497
+        },
+        {
+          "id": "25",
+          "name": "id_автомобиль",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614070431
+        },
+        {
+          "id": "26",
+          "name": "id_статус_брони",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614122172
+        },
+        {
+          "id": "27",
+          "name": "дата_аренды",
+          "type": {
+            "name": "date",
+            "id": "date"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614134775
+        },
+        {
+          "id": "28",
+          "name": "дата_окончания_аренды",
+          "type": {
+            "name": "date",
+            "id": "date"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614161479
+        }
+      ],
+      "indexes": [],
+      "color": "#b067e9",
+      "createdAt": 1748613792770,
+      "isView": false,
+      "order": 5
+    },
+    {
+      "id": "29",
+      "name": "статус_брони",
+      "x": -940,
+      "y": -940,
+      "fields": [
+        {
+          "id": "30",
+          "name": "id_статус_брони",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748614257538
+        },
+        {
+          "id": "31",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614279603
+        }
+      ],
+      "indexes": [],
+      "color": "#b067e9",
+      "createdAt": 1748614257538,
+      "isView": false,
+      "order": 6
+    },
+    {
+      "id": "32",
+      "name": "тариф",
+      "x": -1280,
+      "y": -600,
+      "fields": [
+        {
+          "id": "33",
+          "name": "id_тариф",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748614428272
+        },
+        {
+          "id": "34",
+          "name": "id_тип_автомобиля",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614445169
+        },
+        {
+          "id": "35",
+          "name": "величина_тарифа",
+          "type": {
+            "name": "double",
+            "id": "double"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614502830
+        }
+      ],
+      "indexes": [],
+      "color": "#7175fa",
+      "createdAt": 1748614428272,
+      "isView": false,
+      "order": 7
+    },
+    {
+      "id": "36",
+      "name": "счет",
+      "x": -320,
+      "y": -780,
+      "fields": [
+        {
+          "id": "37",
+          "name": "id_счет",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748614665349
+        },
+        {
+          "id": "38",
+          "name": "стоимость_аренды",
+          "type": {
+            "name": "double",
+            "id": "double"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614679547
+        }
+      ],
+      "indexes": [],
+      "color": "#9ef07a",
+      "createdAt": 1748614665349,
+      "isView": false,
+      "order": 8
+    },
+    {
+      "id": "39",
+      "name": "оплата",
+      "x": -640,
+      "y": -760,
+      "fields": [
+        {
+          "id": "40",
+          "name": "id_оплата",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748614799070
+        },
+        {
+          "id": "41",
+          "name": "id_счет",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614816025
+        },
+        {
+          "id": "42",
+          "name": "дата_оплаты",
+          "type": {
+            "name": "date",
+            "id": "date"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748615137768
+        },
+        {
+          "id": "43",
+          "name": "id_способ_оплаты",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614835152
+        },
+        {
+          "id": "44",
+          "name": "id_сотрудник",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748615227265
+        },
+        {
+          "id": "45",
+          "name": "id_клиент",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748615569972
+        },
+        {
+          "id": "46",
+          "name": "id_бронь",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1748615902104
+        }
+      ],
+      "indexes": [],
+      "color": "#ff6363",
+      "createdAt": 1748614799070,
+      "isView": false,
+      "order": 9
+    },
+    {
+      "id": "47",
+      "name": "способ_оплаты",
+      "x": -320,
+      "y": -620,
+      "fields": [
+        {
+          "id": "48",
+          "name": "id_способ_оплаты",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748614849457
+        },
+        {
+          "id": "49",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614868771
+        }
+      ],
+      "indexes": [],
+      "color": "#ff6b8a",
+      "createdAt": 1748614849457,
+      "isView": false,
+      "order": 10
+    },
+    {
+      "id": "50",
+      "name": "сотрудник",
+      "x": -660,
+      "y": -480,
+      "fields": [
+        {
+          "id": "51",
+          "name": "id_сотрудник",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748614943406
+        },
+        {
+          "id": "52",
+          "name": "фамилия",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614961573
+        },
+        {
+          "id": "53",
+          "name": "имя",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614975522
+        },
+        {
+          "id": "54",
+          "name": "отчество",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1748614977206
+        },
+        {
+          "id": "55",
+          "name": "id_должность",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748614991021
+        },
+        {
+          "id": "56",
+          "name": "номер_телефона",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748615008221
+        }
+      ],
+      "indexes": [],
+      "color": "#9ef07a",
+      "createdAt": 1748614943406,
+      "isView": false,
+      "order": 11
+    },
+    {
+      "id": "57",
+      "name": "должность",
+      "x": -300,
+      "y": -440,
+      "fields": [
+        {
+          "id": "58",
+          "name": "id_должность",
+          "type": {
+            "name": "smallint",
+            "id": "smallint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1748615027388
+        },
+        {
+          "id": "59",
+          "name": "название",
+          "type": {
+            "name": "varchar",
+            "id": "varchar"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748615043555
+        },
+        {
+          "id": "60",
+          "name": "зарплата",
+          "type": {
+            "name": "double",
+            "id": "double"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1748615053770
+        }
+      ],
+      "indexes": [],
+      "color": "#9ef07a",
+      "createdAt": 1748615027388,
+      "isView": false,
+      "order": 12
+    }
+  ],
+  "relationships": [
+    {
+      "id": "61",
+      "name": "автомобиль_id_статус_fk",
+      "sourceTableId": "1",
+      "targetTableId": "9",
+      "sourceFieldId": "7",
+      "targetFieldId": "10",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748613341371
+    },
+    {
+      "id": "62",
+      "name": "автомобиль_id_тип_автомобиля_fk",
+      "sourceTableId": "1",
+      "targetTableId": "12",
+      "sourceFieldId": "8",
+      "targetFieldId": "13",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748613455949
+    },
+    {
+      "id": "63",
+      "name": "бронь_id_статус_брони_fk",
+      "sourceTableId": "22",
+      "targetTableId": "29",
+      "sourceFieldId": "26",
+      "targetFieldId": "30",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748614292634
+    },
+    {
+      "id": "64",
+      "name": "бронь_id_клиент_fk",
+      "sourceTableId": "22",
+      "targetTableId": "15",
+      "sourceFieldId": "24",
+      "targetFieldId": "16",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748614371846
+    },
+    {
+      "id": "65",
+      "name": "бронь_id_автомобиль_fk",
+      "sourceTableId": "22",
+      "targetTableId": "1",
+      "sourceFieldId": "25",
+      "targetFieldId": "2",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748614380256
+    },
+    {
+      "id": "66",
+      "name": "тариф_id_тип_автомобиля_fk",
+      "sourceTableId": "32",
+      "targetTableId": "12",
+      "sourceFieldId": "34",
+      "targetFieldId": "13",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748614590198
+    },
+    {
+      "id": "67",
+      "name": "оплата_способ_оплаты_fk",
+      "sourceTableId": "39",
+      "targetTableId": "47",
+      "sourceFieldId": "43",
+      "targetFieldId": "48",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748614910947
+    },
+    {
+      "id": "68",
+      "name": "сотрудник_id_должность_fk",
+      "sourceTableId": "50",
+      "targetTableId": "57",
+      "sourceFieldId": "55",
+      "targetFieldId": "58",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748615074799
+    },
+    {
+      "id": "69",
+      "name": "оплата_id_счет_fk",
+      "sourceTableId": "39",
+      "targetTableId": "36",
+      "sourceFieldId": "41",
+      "targetFieldId": "37",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1748615265515
+    },
+    {
+      "id": "70",
+      "name": "оплата_id_сотудник_fk",
+      "sourceTableId": "39",
+      "targetTableId": "50",
+      "sourceFieldId": "44",
+      "targetFieldId": "51",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748615304831
+    },
+    {
+      "id": "71",
+      "name": "оплата_id_клиент_fk",
+      "sourceTableId": "39",
+      "targetTableId": "15",
+      "sourceFieldId": "45",
+      "targetFieldId": "16",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1748615586696
+    },
+    {
+      "id": "72",
+      "name": "оплата_id_бронь_fk",
+      "sourceTableId": "39",
+      "targetTableId": "22",
+      "sourceFieldId": "46",
+      "targetFieldId": "23",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1748615923930
+    }
+  ],
+  "dependencies": []
+}

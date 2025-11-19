@@ -1,0 +1,25 @@
+#Introduction
+Lua is a lightweight, embeddable scripting language. It's often used in game development, web applications, embedded systems, and as a configuration language. It is an interpreted open source language built on top of C, but with much simpler syntax.
+
+
+#History
+Lua was created in 1993 by Roberto Ierusalimschy, Luiz Henrique de Figueiredo and Waldemar Celes, members of the Computer Graphics Technology Group (Tecgraf) at the Pontifical Catholic University of Rio de Janeiro, in Brazil.
+Lua's predecessors were the data-description/configuration languages Simple Object Language (SOL) and data-entry language (DEL). Because the new language was a modified version of Sol (sun, in Portuguese), the language was named Lua (moon, in Portuguese).
+
+
+#Key features
+Lua’s lightweight nature makes it ideal for systems with limited resources, such as embedded devices or game engines. Its simplicity doesn’t sacrifice power. Lua is used in high-performance applications like game development and web servers. The language’s portability ensures it can run on almost any system, from smartphones to industrial controllers.
+
+
+#Syntax overview
+Lua combines simple procedural syntax with powerful data description constructs based on associative arrays and extensible semantics. Lua is dynamically typed and runs by interpreting bytecode for a register-based virtual machine. It doesn't have classes and is not an OOP language, but OOP can be implemented using metatables. Also treats functions just like any other variable, so you could write functional approach as well. Variety of paradigms you could use make it a multi-paradigm programming language.
+
+#Lua in game development
+Why Lua?
+- Easy to learn for non-programmers.
+- Lightweight and fast, perfect for real-time applications.
+Lua’s speed and simplicity make it ideal for real-time game logic, while its small size ensures it doesn’t bloat the game engine. Lua is also used in game frameworks like Love2D, which empowers indie developers to create 2D games quickly.
+
+
+#Lua vs Other Scripting Languages
+Lua is often compared to Python and JavaScript, but it serves a different niche. While Python is great for general-purpose programming and JavaScript dominates web development, Lua shines in scenarios where lightweight and embeddable scripting is needed. For example, Lua is a better choice than Python for embedding in game engines or IoT devices due to its smaller size and faster execution.

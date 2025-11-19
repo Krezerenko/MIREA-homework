@@ -1,0 +1,106 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
+  <diagram name="Страница — 1" id="iqzSf8zl8OVajD37MBGq">
+    <mxGraphModel dx="1221" dy="717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tIkDX8ETidHGZDSpde1m-26" value="Клиент" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
+          <mxGeometry x="59" y="90" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-52" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" parent="1" source="tIkDX8ETidHGZDSpde1m-26" target="tIkDX8ETidHGZDSpde1m-53" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="119" y="140" as="sourcePoint" />
+            <mxPoint x="279" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-53" value="Меню" style="shape=umlBoundary;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="244" y="80" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-54" value="Интерфейс корзины" style="shape=umlBoundary;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="139" y="270" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-55" value="Менеджер корзины" style="ellipse;shape=umlControl;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="479" y="180" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-56" value="Корзина" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="659" y="50" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-57" value="База блюд" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="689" y="280" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-58" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" parent="1" source="tIkDX8ETidHGZDSpde1m-53" target="tIkDX8ETidHGZDSpde1m-55" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="299" y="220" as="sourcePoint" />
+            <mxPoint x="459" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-59" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" parent="1" source="tIkDX8ETidHGZDSpde1m-54" target="tIkDX8ETidHGZDSpde1m-55" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="219" y="240" as="sourcePoint" />
+            <mxPoint x="379" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-60" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" parent="1" source="tIkDX8ETidHGZDSpde1m-55" target="tIkDX8ETidHGZDSpde1m-56" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="589" y="240" as="sourcePoint" />
+            <mxPoint x="749" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-61" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" parent="1" source="tIkDX8ETidHGZDSpde1m-55" target="tIkDX8ETidHGZDSpde1m-57" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="569" y="220" as="sourcePoint" />
+            <mxPoint x="729" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-62" value="1: нажатьНаБлюдо(idБлюда)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;labelBackgroundColor=none;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="129" y="110" as="sourcePoint" />
+            <mxPoint x="209" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-64" value="2: передачаДанных(&lt;div&gt;idБлюда)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;labelBackgroundColor=none;" parent="1" edge="1">
+          <mxGeometry x="0.2667" y="9" width="80" relative="1" as="geometry">
+            <mxPoint x="369" y="140" as="sourcePoint" />
+            <mxPoint x="459" y="180" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-65" value="&lt;span&gt;3: добавитьБлюдоВКорзину(&lt;/span&gt;&lt;div&gt;&lt;span&gt;idБлюда)&lt;/span&gt;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;labelBackgroundColor=none;" parent="1" edge="1">
+          <mxGeometry x="-0.36" y="26" width="80" relative="1" as="geometry">
+            <mxPoint x="559" y="170" as="sourcePoint" />
+            <mxPoint x="649" y="110" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-66" value="4: return&amp;nbsp;&lt;div&gt;:списокIdБлюдКорзины&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;labelBackgroundColor=none;" parent="1" edge="1">
+          <mxGeometry x="-0.3258" y="41" width="80" relative="1" as="geometry">
+            <mxPoint x="649" y="140" as="sourcePoint" />
+            <mxPoint x="579" y="190" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-67" value="5: запроситьОтображенияБлюд(&lt;div&gt;списокIdБлюдКорзины)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;labelBackgroundColor=none;" parent="1" edge="1">
+          <mxGeometry x="0.567" y="23" width="80" relative="1" as="geometry">
+            <mxPoint x="579" y="240" as="sourcePoint" />
+            <mxPoint x="669" y="280" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-68" value="6: return :списокИзображенийИ&lt;div&gt;ОписанийБлюдКорзины&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;labelBackgroundColor=none;" parent="1" edge="1">
+          <mxGeometry x="-0.1507" y="56" width="80" relative="1" as="geometry">
+            <mxPoint x="669" y="300" as="sourcePoint" />
+            <mxPoint x="559" y="250" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tIkDX8ETidHGZDSpde1m-69" value="7: обновитьОтображениеКорзины(&lt;div&gt;списокIdБлюдКорзины,&lt;/div&gt;&lt;div&gt;списокИзображенийИ&lt;/div&gt;&lt;div&gt;ОписанийБлюдкорзины)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.0345" y="85" width="80" relative="1" as="geometry">
+            <mxPoint x="459" y="250" as="sourcePoint" />
+            <mxPoint x="289" y="300" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,1 @@
+[1m.\ex2.py[m[36m:[m79[36m:[m16[36m:[m [1m[31mE999[m SyntaxError: expected ':'
