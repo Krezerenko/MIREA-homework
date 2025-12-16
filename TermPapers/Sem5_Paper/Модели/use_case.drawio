@@ -1,0 +1,89 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Страница-1" id="lI5Nmba6cd29XTJ4M3C7">
+    <mxGraphModel dx="694" dy="595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-1" value="Гость" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="140" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-2" value="Клиент" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="140" y="330" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-3" value="Войти" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-4" value="Добавить товар в корзину" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="250" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-5" value="Зарегистрироваться" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="160" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-6" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=none;html=1;endArrow=open;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;rounded=0;" edge="1" parent="1" source="HOfIKPTc2vEte8M-5mGr-5" target="HOfIKPTc2vEte8M-5mGr-3">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="280" y="310" as="sourcePoint" />
+            <mxPoint x="440" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-8" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" edge="1" parent="1" source="HOfIKPTc2vEte8M-5mGr-1" target="HOfIKPTc2vEte8M-5mGr-3">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="280" y="310" as="sourcePoint" />
+            <mxPoint x="440" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-9" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" edge="1" parent="1" source="HOfIKPTc2vEte8M-5mGr-1" target="HOfIKPTc2vEte8M-5mGr-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="190" y="220" as="sourcePoint" />
+            <mxPoint x="350" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-10" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" edge="1" parent="1" source="HOfIKPTc2vEte8M-5mGr-2" target="HOfIKPTc2vEte8M-5mGr-4">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="250" y="390" as="sourcePoint" />
+            <mxPoint x="410" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-11" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" edge="1" parent="1" source="HOfIKPTc2vEte8M-5mGr-1" target="HOfIKPTc2vEte8M-5mGr-4">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="270" y="420" as="sourcePoint" />
+            <mxPoint x="430" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-12" value="Выйти" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="450" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-13" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" edge="1" parent="1" source="HOfIKPTc2vEte8M-5mGr-2" target="HOfIKPTc2vEte8M-5mGr-12">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="150" y="450" as="sourcePoint" />
+            <mxPoint x="310" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-14" value="Оформить заказ" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="360" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-15" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=none;html=1;endArrow=open;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;rounded=0;" edge="1" parent="1" source="HOfIKPTc2vEte8M-5mGr-14" target="HOfIKPTc2vEte8M-5mGr-4">
+          <mxGeometry x="-0.5" width="160" relative="1" as="geometry">
+            <mxPoint x="460" y="300" as="sourcePoint" />
+            <mxPoint x="620" y="300" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-16" value="" style="edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;rounded=0;" edge="1" parent="1" source="HOfIKPTc2vEte8M-5mGr-2" target="HOfIKPTc2vEte8M-5mGr-14">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="130" y="430" as="sourcePoint" />
+            <mxPoint x="290" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-18" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="edgeStyle=none;html=1;startArrow=open;endArrow=none;startSize=12;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;rounded=0;" edge="1" parent="1" source="HOfIKPTc2vEte8M-5mGr-4" target="HOfIKPTc2vEte8M-5mGr-19">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="440" y="280" as="sourcePoint" />
+            <mxPoint x="560" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HOfIKPTc2vEte8M-5mGr-19" value="Убрать товар из корзины" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="260" width="140" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
