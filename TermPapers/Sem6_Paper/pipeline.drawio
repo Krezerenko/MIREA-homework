@@ -1,0 +1,74 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram name="Страница-1" id="zeLynbBchtwYyI24Pdoy">
+    <mxGraphModel dx="1213" dy="722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="H95Fcxfz64cZpp0oljtp-9" edge="1" parent="1" source="H95Fcxfz64cZpp0oljtp-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H95Fcxfz64cZpp0oljtp-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 150%; margin-top: 0pt; margin-bottom: 0pt; text-indent: -0.38in; direction: ltr; word-break: normal;&quot;&gt;&lt;span style=&quot;line-height: 150%;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0); font-size: 18px;&quot;&gt;Draft&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="70" width="90" x="60" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-10" edge="1" parent="1" source="H95Fcxfz64cZpp0oljtp-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H95Fcxfz64cZpp0oljtp-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 150%; margin-top: 0pt; margin-bottom: 0pt; text-indent: -0.38in; direction: ltr; word-break: normal;&quot;&gt;&lt;div style=&quot;language:ru;line-height:150%;margin-top:0pt;margin-bottom:0pt;&amp;lt;br/&amp;gt;margin-left:.38in;text-indent:-.38in;text-align:left;direction:ltr;unicode-bidi:&amp;lt;br/&amp;gt;embed;mso-line-break-override:none;word-break:normal;punctuation-wrap:hanging&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; color: black;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;HighPoly&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="70" width="90" x="180" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-11" edge="1" parent="1" source="H95Fcxfz64cZpp0oljtp-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H95Fcxfz64cZpp0oljtp-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="195" />
+              <mxPoint x="410" y="250" />
+              <mxPoint x="40" y="250" />
+              <mxPoint x="40" y="305" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 150%; margin-top: 0pt; margin-bottom: 0pt; text-indent: -0.38in; direction: ltr; word-break: normal;&quot;&gt;&lt;div style=&quot;language:ru;line-height:150%;margin-top:0pt;margin-bottom:0pt;&amp;lt;br/&amp;gt;margin-left:.38in;text-indent:-.38in;text-align:left;direction:ltr;unicode-bidi:&amp;lt;br/&amp;gt;embed;mso-line-break-override:none;word-break:normal;punctuation-wrap:hanging&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; color: black;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;LowPoly&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="70" width="90" x="300" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-12" edge="1" parent="1" source="H95Fcxfz64cZpp0oljtp-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H95Fcxfz64cZpp0oljtp-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 150%; margin-top: 0pt; margin-bottom: 0pt; text-indent: -0.38in; direction: ltr; word-break: normal;&quot;&gt;&lt;div style=&quot;language:ru;line-height:150%;margin-top:0pt;margin-bottom:0pt;&amp;lt;br/&amp;gt;margin-left:.38in;text-indent:-.38in;text-align:left;direction:ltr;unicode-bidi:&amp;lt;br/&amp;gt;embed;mso-line-break-override:none;word-break:normal;punctuation-wrap:hanging&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; color: black;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;UV&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="70" width="90" x="60" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-13" edge="1" parent="1" source="H95Fcxfz64cZpp0oljtp-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H95Fcxfz64cZpp0oljtp-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="310" />
+              <mxPoint x="340" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 150%; margin-top: 0pt; margin-bottom: 0pt; text-indent: -0.38in; direction: ltr; word-break: normal;&quot;&gt;&lt;div style=&quot;language:ru;line-height:150%;margin-top:0pt;margin-bottom:0pt;&amp;lt;br/&amp;gt;margin-left:.38in;text-indent:-.38in;text-align:left;direction:ltr;unicode-bidi:&amp;lt;br/&amp;gt;embed;mso-line-break-override:none;word-break:normal;punctuation-wrap:hanging&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; color: black;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Baking&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="70" width="100" x="176" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-14" edge="1" parent="1" source="H95Fcxfz64cZpp0oljtp-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H95Fcxfz64cZpp0oljtp-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="305" />
+              <mxPoint x="470" y="360" />
+              <mxPoint x="40" y="360" />
+              <mxPoint x="40" y="415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 150%; margin-top: 0pt; margin-bottom: 0pt; text-indent: -0.38in; direction: ltr; word-break: normal;&quot;&gt;&lt;div style=&quot;language:ru;line-height:150%;margin-top:0pt;margin-bottom:0pt;&amp;lt;br/&amp;gt;margin-left:.38in;text-indent:-.38in;text-align:left;direction:ltr;unicode-bidi:&amp;lt;br/&amp;gt;embed;mso-line-break-override:none;word-break:normal;punctuation-wrap:hanging&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; color: black;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Текстурирование&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="70" width="150" x="300" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-15" edge="1" parent="1" source="H95Fcxfz64cZpp0oljtp-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H95Fcxfz64cZpp0oljtp-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 150%; margin-top: 0pt; margin-bottom: 0pt; text-indent: -0.38in; direction: ltr; word-break: normal;&quot;&gt;&lt;div style=&quot;language:ru;line-height:150%;margin-top:0pt;margin-bottom:0pt;&amp;lt;br/&amp;gt;margin-left:.38in;text-indent:-.38in;text-align:left;direction:ltr;unicode-bidi:&amp;lt;br/&amp;gt;embed;mso-line-break-override:none;word-break:normal;punctuation-wrap:hanging&quot;&gt;&lt;font color=&quot;#000000&quot; face=&quot;Times New Roman&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Риггинг&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="70" width="90" x="60" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="H95Fcxfz64cZpp0oljtp-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;spacing=2;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 150%; margin-top: 0pt; margin-bottom: 0pt; text-indent: -0.38in; direction: ltr; word-break: normal;&quot;&gt;&lt;div style=&quot;line-height: 150%; margin-top: 0pt; margin-bottom: 0pt; text-indent: -0.38in; direction: ltr; word-break: normal;&quot;&gt;&lt;font color=&quot;#000000&quot; face=&quot;Times New Roman&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Интеграция в движок&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="70" width="130" x="170" y="380" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,57 @@
+@startuml
+!theme plain
+skinparam state {
+  BackgroundColor LightCyan
+  BorderColor Black
+}
+
+title Диаграмма состояний: Жизненный цикл голосового упражнения
+
+[*] --> Init
+
+state "Инициализация упражнения" as Init
+Init : do / загрузка эталонной фразы и контекста диалога
+
+Init --> Wait :[данные загружены]
+
+state "Ожидание пользователя" as Wait
+
+Wait --> Record : нажата кнопка микрофона
+
+state "Запись речи" as Record
+Record : entry / активация микрофона
+Record : exit / фиксация аудиосигнала
+
+Record --> Analyze : микрофон отпущен
+
+state "Распознавание и анализ" as Analyze
+Analyze : do / обращение к API ASR
+Analyze : do / сравнение текста с эталоном
+
+state "Проверка\nраспознавания" as c1 <<choice>>
+Analyze --> c1
+
+c1 -up-> Wait : [речь не распознана]
+c1 --> Generate :[речь распознана успешно]
+
+state "Генерация и синтез ответа" as Generate
+Generate : do / формирование текстовой реплики
+Generate : do / обращение к API TTS для озвучки
+
+Generate --> Play
+
+state "Воспроизведение аудиоответа" as Play
+
+state "Статус\nдиалога" as c2 <<choice>>
+Play --> c2
+
+c2 -up-> Wait : [диалог не завершен]
+c2 --> Save : [цель диалога достигнута]
+
+state "Сохранение результатов" as Save
+Save : do / расчет итогового балла (score)
+Save : do / запись статистики в БД
+
+Save --> [*]
+
+@enduml
