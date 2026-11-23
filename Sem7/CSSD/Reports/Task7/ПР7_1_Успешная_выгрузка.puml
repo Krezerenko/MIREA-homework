@@ -1,0 +1,32 @@
+@startuml ПР7_1_Успешная_выгрузка
+skinparam sequenceArrowThickness 2
+skinparam participantPadding 12
+skinparam BoxPadding 8
+title Успешная выгрузка записи матча
+
+participant "Игровой сервер\n(модуль выгрузки)" as sdk
+participant "Служба приёма" as ingest
+database "БД приёма" as dbe
+participant "Облачное хранилище" as s3
+
+sdk -> ingest : POST /api/v1/replay-uploads\n(ключ сервера, external_match_id,\nразмер, контрольная сумма, данные матча)
+ingest -> dbe : проверить ключ сервера,\nпроверить дубль по ключу\n(владелец, сервер, матч)
+ingest -> ingest : подписать ссылку\nлокально, без сетевого вызова
+ingest --> sdk : 201: upload_id, upload_url,\nссылка действует 15 мин
+
+sdk -> s3 : PUT upload_url (файл записи, 50 МБ)
+s3 --> sdk : 200 + ETag
+
+sdk -> ingest : POST /api/v1/replay-uploads/{upload_id}/complete
+ingest -> s3 : HEAD: проверить размер\nи контрольную сумму объекта
+s3 --> ingest : объект на месте, сумма совпала
+ingest -> dbe : записать реплей, учесть квоту,\nсобытие «Реплей принят» в журнал
+ingest --> sdk : 200: result = accepted, replay_id
+sdk -> sdk : удалить файл из буфера выгрузки
+note right of sdk
+  С этого момента ответственность
+  за сохранность несёт платформа;
+  матч появится в каталоге
+  не позднее чем через 60 с
+end note
+@enduml

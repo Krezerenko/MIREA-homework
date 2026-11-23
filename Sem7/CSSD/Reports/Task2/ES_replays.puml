@@ -1,0 +1,189 @@
+@startuml
+left to right direction
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam wrapWidth 130
+skinparam defaultTextAlignment center
+skinparam ArrowColor #333333
+skinparam rectangle {
+  BorderColor #1F1F1F
+}
+skinparam rectangle<<ai>> {
+  RoundCorner 25
+}
+skinparam rectangle<<ctx>> {
+  BorderStyle dashed
+  BorderColor #404040
+  BackgroundColor #FAFAFA
+  FontSize 15
+  FontStyle bold
+}
+hide stereotype
+title Карта событий. Платформа хранения игровых повторов
+
+rectangle "Ограниченный контекст «Приём»" as ctx_ingest <<ctx>> {
+  rectangle "<i><size:10>участник</size></i>\nРазработчик игры" as s1_a #FFF566
+  rectangle "<i><size:10>команда</size></i>\nВыпустить ключ сервера" as s1_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Студия</b></size>\n " as s1_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nКлюч сервера выпущен" as e_key #FFA940
+  rectangle "<i><size:10>участник</size></i>\nВыделенный игровой сервер" as s2_a #FFF566
+  rectangle "<i><size:10>команда</size></i>\nВыгрузить реплей" as s2_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Реплей</b></size>\n " as s2_t #FFE58F;line.bold
+  node "<i><size:10>внешняя система</size></i>\nОблачное хранилище" as s2_g #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nРеплей принят" as e_acc #FFA940
+  rectangle "<i><size:10>событие</size></i>\nРеплей отклонён" as e_rej #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда реплей принят, то учесть объём в квоте студии" as s3_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nУчесть объём в квоте студии" as s3_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Студия</b></size>\n " as s3_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nОбъём хранения студии учтён" as e_counted #FFA940
+  rectangle "<i><size:10>событие</size></i>\nКвота студии исчерпана" as e_quota #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда квота студии исчерпана, то уведомить студию" as s4_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nУведомить студию о квоте" as s4_c #69B1FF;line.bold
+  node "<i><size:10>внешняя система</size></i>\nСлужба уведомлений" as s4_t #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nСтудия уведомлена о квоте" as e_quota_msg #FFA940
+  hexagon "<i><size:10>горячая точка</size></i>\nЧто делать с повторной выгрузкой того же матча: отклонить или заменить запись?" as hot0 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nОтклонять ли приём после исчерпания квоты, если это ведёт к потере матчей?" as hot1 #FF7875
+}
+rectangle "Ограниченный контекст «Каталог и доступ»" as ctx_catalog <<ctx>> {
+  rectangle "<i><size:10>политика</size></i>\nКогда реплей принят, то внести матч в каталог" as s5_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nВнести матч в каталог" as s5_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Карточка матча</b></size>\n " as s5_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nМатч внесён в каталог" as e_cat #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда матч внесён в каталог, то сопоставить матч с профилями участников" as s6_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nСопоставить матч с профилями участников" as s6_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Профиль игрока</b></size>\n " as s6_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nМатч сопоставлен с профилями участников" as e_prof #FFA940
+  rectangle "<i><size:10>участник</size></i>\nРазработчик игры" as s8_a #FFF566
+  file "<i><size:10>модель чтения</size></i>\nМатчи студии" as s8_r #95DE64
+  rectangle "<i><size:10>команда</size></i>\nИзменить уровень доступа матча" as s8_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Карточка матча</b></size>\n " as s8_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nУровень доступа матча изменён" as e_access #FFA940
+  rectangle "<i><size:10>участник</size></i>\nОрганизатор турнира" as s9_a #FFF566
+  rectangle "<i><size:10>команда</size></i>\nСнять эмбарго" as s9_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Карточка матча</b></size>\n " as s9_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nЭмбарго снято" as e_lift #FFA940
+  rectangle "<i><size:10>участник</size></i>\nЗритель" as s7_a #FFF566
+  file "<i><size:10>модель чтения</size></i>\nКаталог матчей" as s7_r #95DE64
+  rectangle "<i><size:10>команда</size></i>\nСкачать реплей" as s7_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Карточка матча</b></size>\n " as s7_t #FFE58F;line.bold
+  node "<i><size:10>внешняя система</size></i>\nОблачное хранилище" as s7_g #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nРеплей выдан" as e_given #FFA940
+  rectangle "<i><size:10>событие</size></i>\nВ выдаче реплея отказано" as e_denied #FFA940
+  rectangle "<i><size:10>участник</size></i>\nИгрок" as s10_a #FFF566
+  rectangle "<i><size:10>команда</size></i>\nУдалить свои данные" as s10_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Профиль игрока</b></size>\n " as s10_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nДанные игрока удалены" as e_pdel #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда запись удалена по истечении срока, то исключить матч из каталога" as s15_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nИсключить матч из каталога" as s15_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Карточка матча</b></size>\n " as s15_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nМатч исключён из каталога" as e_excl #FFA940
+  hexagon "<i><size:10>горячая точка</size></i>\nМожет ли игрок скрыть публичный матч со своим участием?" as hot2 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nСнимает ли эмбарго организатор вручную или оно снимается по окончании трансляции?" as hot3 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nВыдача реплея это доменное событие, если по ней считаются популярность и трафик?" as hot4 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nУдалять ли реплеи матчей с участием игрока или только обезличить его в них?" as hot5 #FF7875
+}
+rectangle "Ограниченный контекст «Хранение»" as ctx_store <<ctx>> {
+  rectangle "<i><size:10>политика</size></i>\nКогда реплей принят, то назначить срок хранения" as s12_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nНазначить срок хранения" as s12_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Запись в хранилище</b></size>\n " as s12_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nСрок хранения назначен" as e_ret #FFA940
+  rectangle "<i><size:10>политика, по расписанию</size></i>\nПо расписанию переводить записи старше 30 дней в холодный класс" as s13_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nПеревести запись в холодный класс" as s13_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Запись в хранилище</b></size>\n " as s13_t #FFE58F;line.bold
+  node "<i><size:10>внешняя система</size></i>\nОблачное хранилище" as s13_g #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nЗапись переведена в холодный класс" as e_cold #FFA940
+  rectangle "<i><size:10>политика, по расписанию</size></i>\nПо расписанию удалять записи с истёкшим сроком хранения" as s14_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nУдалить запись по истечении срока" as s14_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Запись в хранилище</b></size>\n " as s14_t #FFE58F;line.bold
+  node "<i><size:10>внешняя система</size></i>\nОблачное хранилище" as s14_g #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nЗапись удалена по истечении срока" as e_expired #FFA940
+  rectangle "<i><size:10>политика, по расписанию</size></i>\nПо расписанию сверять каталог с хранилищем" as s16_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nСверить каталог с хранилищем" as s16_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Запись в хранилище</b></size>\n " as s16_t #FFE58F;line.bold
+  node "<i><size:10>внешняя система</size></i>\nОблачное хранилище" as s16_g #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nСверка каталога с хранилищем выполнена" as e_rec #FFA940
+  rectangle "<i><size:10>событие</size></i>\nУтрата записи обнаружена" as e_lost #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда утрата записи обнаружена, то оповестить дежурного инженера" as s17_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nОповестить дежурного инженера" as s17_c #69B1FF;line.bold
+  node "<i><size:10>внешняя система</size></i>\nСлужба уведомлений" as s17_t #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nДежурный инженер оповещён" as e_duty #FFA940
+  hexagon "<i><size:10>горячая точка</size></i>\nКто задаёт срок хранения записей: платформа или студия?" as hot6 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nЧто сообщать студии и игрокам, если утраченную запись восстановить нельзя?" as hot7 #FF7875
+}
+
+s1_a --> s1_c
+s1_c --> s1_t
+s1_t --> e_key
+s2_a --> s2_c
+s2_c --> s2_t
+s2_t .. s2_g
+s2_t --> e_acc
+s2_t --> e_rej
+s3_a --> s3_c
+s3_c --> s3_t
+s3_t --> e_counted
+s3_t --> e_quota
+e_acc --> s3_a
+s4_a --> s4_c
+s4_c --> s4_t
+s4_t --> e_quota_msg
+e_quota --> s4_a
+s5_a --> s5_c
+s5_c --> s5_t
+s5_t --> e_cat
+e_acc --> s5_a
+s6_a --> s6_c
+s6_c --> s6_t
+s6_t --> e_prof
+e_cat --> s6_a
+s8_r ..> s8_a
+s8_a --> s8_c
+s8_c --> s8_t
+s8_t --> e_access
+s9_a --> s9_c
+s9_c --> s9_t
+s9_t --> e_lift
+s7_r ..> s7_a
+s7_a --> s7_c
+s7_c --> s7_t
+s7_t .. s7_g
+s7_t --> e_given
+s7_t --> e_denied
+s10_a --> s10_c
+s10_c --> s10_t
+s10_t --> e_pdel
+s15_a --> s15_c
+s15_c --> s15_t
+s15_t --> e_excl
+e_expired --> s15_a
+s12_a --> s12_c
+s12_c --> s12_t
+s12_t --> e_ret
+e_acc --> s12_a
+s13_a --> s13_c
+s13_c --> s13_t
+s13_t .. s13_g
+s13_t --> e_cold
+s14_a --> s14_c
+s14_c --> s14_t
+s14_t .. s14_g
+s14_t --> e_expired
+s16_a --> s16_c
+s16_c --> s16_t
+s16_t .. s16_g
+s16_t --> e_rec
+s16_t --> e_lost
+s17_a --> s17_c
+s17_c --> s17_t
+s17_t --> e_duty
+e_lost --> s17_a
+hot0 .. s2_c
+hot1 .. s3_c
+hot2 .. s8_c
+hot3 .. s9_c
+hot4 .. s7_c
+hot5 .. s10_c
+hot6 .. s12_c
+hot7 .. s16_c
+@enduml

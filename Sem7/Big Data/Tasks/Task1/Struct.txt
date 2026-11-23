@@ -1,0 +1,19 @@
+About Dataset
+Context
+You found Russian Demography (1990-2017) Dataset. It contains demographic features like natural population growth, birth rate, urbanization, etc. Data was collected from various Internet resources.
+
+Content
+Dataset has 2380 rows and 7 columns. Keys for columns:
+
+"year" - year (1990-2017)
+"region" - name of a federal subject of Russia. It could be oblast, republic, krai, autonomous okrug, federal city and a single autonomous oblast
+"npg" - natural population growth by 1000 people. Calculating as the difference between birth rate and death rate
+"birth_rate" - number of births by 1000 people
+"death_rate" - number of deaths by 1000 people
+"gdw" - general demographic weight (how many people of non-woking age account for 100 people of working age). Working age for men 16-60 years, for women 16-55 years
+"urbanization" - % of urban population
+Acknowledgements
+ЕМИСС (UIISS) - Unified interdepartmental information and statistical system
+
+Inspiration
+You can analyze the relationships between various years, find best regions by each feature and compare them.

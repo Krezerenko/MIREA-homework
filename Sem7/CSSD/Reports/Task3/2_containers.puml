@@ -1,0 +1,69 @@
+@startuml 2_containers
+!include <C4/C4_Container>
+
+title Уровень 2. Контейнеры: платформа хранения игровых повторов
+
+Person(player, "Игрок", "Работает через веб-портал")
+Person(viewer, "Зритель", "Работает через веб-портал")
+Person(owner, "Владелец серверов", "Работает через кабинет на веб-портале")
+
+System_Ext(auth, "Служба аутентификации Steam / Epic", "OpenID")
+System_Ext(gs, "Выделенный игровой сервер", "Проводит матч и записывает его; в него встроен модуль выгрузки")
+
+System_Boundary(platform, "Платформа хранения игровых повторов") {
+  Container(portal, "Веб-портал", "TypeScript / React", "Поиск и скачивание записей; кабинет владельца серверов")
+  Container(sdk, "Модуль выгрузки (SDK)", "C++, библиотека", "Встраивается в игровой сервер: отправляет запись, хранит файл до подтверждения приёма и повторяет отправку")
+
+  Container(catalog, "Служба каталога и доступа", "Java / Spring Boot", "Контекст «Каталог и доступ»: карточки матчей, профили игроков, правила доступа, выдача ссылок")
+  Container(ingest, "Служба приёма", "Java / Spring Boot", "Контекст «Приём»: ключи серверов, проверка дублей и контрольной суммы, квота, подтверждение приёма, журнал событий приёма")
+  Container(storage, "Служба хранения", "Java / Spring Boot, @Scheduled", "Контекст «Хранение»: сроки и классы хранения, удаление, сверка, журнал событий хранения")
+
+  ContainerDb(db_catalog, "БД каталога", "PostgreSQL, схема", "Карточки матчей, профили игроков, журнал выдач")
+  ContainerDb(db_ingest, "БД приёма", "PostgreSQL, схема", "Владельцы, ключи, квоты, реплеи, журнал событий приёма")
+  ContainerDb(db_storage, "БД хранения", "PostgreSQL, схема", "Записи в хранилище, сроки и классы хранения, журнал событий хранения")
+}
+
+System_Ext(s3, "Облачное хранилище", "S3-совместимое объектное хранилище")
+System_Ext(notify, "Служба уведомлений", "Письма и оповещения")
+
+Lay_R(portal, sdk)
+Lay_R(catalog, ingest)
+Lay_R(ingest, storage)
+Lay_D(portal, catalog)
+Lay_D(sdk, ingest)
+Lay_D(catalog, db_catalog)
+Lay_D(ingest, db_ingest)
+Lay_D(storage, db_storage)
+Lay_R(db_catalog, db_ingest)
+Lay_R(db_ingest, db_storage)
+Lay_D(db_ingest, s3)
+Lay_R(s3, notify)
+
+Rel_D(player, portal, "Ищет и скачивает свои матчи, удаляет свои данные")
+Rel_D(viewer, portal, "Ищет и скачивает публичные записи")
+Rel_D(owner, portal, "Выпускает ключи, меняет уровни доступа")
+
+Rel_D(gs, sdk, "Готовый файл записи и данные матча", "вызов библиотеки")
+Rel_D(sdk, ingest, "Запрос на выгрузку, завершение выгрузки / подтверждение приёма", "HTTPS/JSON, синхронный вызов")
+Rel(sdk, s3, "Файл реплея по подписанной ссылке", "HTTPS PUT")
+
+Rel_D(portal, catalog, "Поиск, ссылки на скачивание, уровни доступа, удаление данных", "HTTPS/JSON, синхронный вызов")
+Rel(portal, ingest, "Выпуск ключей сервера", "HTTPS/JSON, синхронный вызов")
+Rel(portal, s3, "Скачивание файла по подписанной ссылке", "HTTPS GET")
+Rel_L(catalog, auth, "Проверка входа игрока", "OpenID / HTTPS")
+
+Rel_R(catalog, ingest, "События приёма: «Реплей принят»", "HTTPS/JSON, чтение по расписанию раз в 5 с")
+Rel_L(storage, ingest, "События приёма: «Реплей принят»", "HTTPS/JSON, чтение по расписанию раз в 5 с")
+Rel(catalog, storage, "События хранения: «Запись удалена по истечении срока»", "HTTPS/JSON, чтение по расписанию раз в 5 с")
+
+Rel_D(catalog, db_catalog, "Карточки, профили, журнал выдач", "SQL/JDBC")
+Rel_D(ingest, db_ingest, "Ключи, квоты, реплеи, события", "SQL/JDBC")
+Rel_D(storage, db_storage, "Записи, сроки, события", "SQL/JDBC")
+
+Rel(ingest, s3, "Проверка загруженного файла и контрольной суммы", "HTTPS HEAD, синхронный вызов")
+Rel(storage, s3, "Перевод в холодный класс, удаление, опись объектов", "HTTPS, по расписанию")
+Rel(ingest, notify, "Уведомление о квоте", "HTTPS/JSON")
+Rel(storage, notify, "Оповещение дежурного об утрате записи", "HTTPS/JSON")
+
+SHOW_LEGEND()
+@enduml

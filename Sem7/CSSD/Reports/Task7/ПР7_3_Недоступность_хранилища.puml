@@ -1,0 +1,43 @@
+@startuml ПР7_3_Недоступность_хранилища
+skinparam sequenceArrowThickness 2
+skinparam participantPadding 12
+title Недоступность облачного хранилища при выгрузке
+
+participant "Игровой сервер\n(модуль выгрузки)" as sdk
+participant "Служба приёма" as ingest
+participant "Облачное хранилище" as s3
+participant "Служба уведомлений" as notify
+participant "Дежурный инженер" as duty
+
+sdk -> ingest : POST /api/v1/replay-uploads
+ingest --> sdk : 201: upload_id, upload_url
+
+loop до 3 попыток, пока общий срок 35 мин не исчерпан
+  sdk -> s3 : PUT upload_url (файл записи)
+  s3 -// sdk : ответа нет (таймаут бездействия 30 с)
+  sdk -> sdk : выдержка: 1 с, 2 с, 4 с…\nпредел 30 с + разброс 0–500 мс
+end
+
+sdk -> sdk : файл остаётся в буфере выгрузки,\nзапись в журнале сервера;\nпри переполнении буфера новые\nзаписи не принимаются
+
+note right of sdk
+  Завершение выгрузки (POST …/complete)
+  не вызывается: объект не загружен,
+  подтверждение приёма невозможно
+end note
+
+== Хранилище недоступно дольше интервала сверки ==
+ingest -> s3 : очередная проверка объекта (HEAD)\nпри других выгрузках
+s3 -// ingest : ответа нет
+ingest -> ingest : запись в журнале сбоев хранилища
+ingest -> notify : POST /api/v1/notifications\n(kind = storage_failure, дежурный)
+notify --> ingest : 202: принято к отправке
+notify -> duty : оповещение дежурного\nне позднее 5 минут
+
+== Связь восстановлена ==
+sdk -> s3 : PUT upload_url (повтор из буфера)
+s3 --> sdk : 200 + ETag
+sdk -> ingest : POST …/complete
+ingest --> sdk : 200: accepted
+sdk -> sdk : удалить файл из буфера
+@enduml

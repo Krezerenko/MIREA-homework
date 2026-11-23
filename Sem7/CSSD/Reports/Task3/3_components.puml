@@ -1,0 +1,40 @@
+@startuml 3_components
+!include <C4/C4_Component>
+
+title Уровень 3. Компоненты: служба каталога и доступа
+
+Container(portal, "Веб-портал", "TypeScript / React", "Поиск и скачивание записей; кабинет владельца серверов")
+Container(ingest, "Служба приёма", "Java / Spring Boot", "Отдаёт журнал событий приёма")
+Container(storage, "Служба хранения", "Java / Spring Boot, @Scheduled", "Отдаёт журнал событий хранения")
+ContainerDb(db_catalog, "БД каталога", "PostgreSQL, схема", "Карточки матчей, профили игроков, журнал выдач")
+System_Ext(auth, "Служба аутентификации Steam / Epic", "OpenID")
+
+Container_Boundary(catalog, "Служба каталога и доступа") {
+  Component(api, "API каталога", "Spring Web MVC", "Принимает запросы портала и возвращает ответы")
+  Component(login, "Аутентификация", "Spring Security, OpenID", "Вход через Steam / Epic, выпуск и локальная проверка токена сессии")
+  Component(search, "Поиск матчей", "Java", "Модели чтения «Каталог матчей» и «Матчи моих серверов»: списки и фильтры по тегам")
+  Component(access, "Правила доступа", "Java", "Агрегат «Карточка матча»: внесение и исключение матча, уровень доступа, решение о выдаче")
+  Component(links, "Выдача ссылок", "Java, AWS SDK", "Подписывает ссылку на файл без сетевого вызова и фиксирует выдачу или отказ в журнале выдач")
+  Component(profiles, "Профили игроков", "Java", "Агрегат «Профиль игрока»: сопоставление матча с участниками, удаление данных игрока")
+  Component(events, "Приёмник событий", "Java, @Scheduled", "Читает журналы событий приёма и хранения и вызывает реакции каталога")
+}
+
+Rel(portal, api, "Поиск, ссылки, уровни доступа, удаление данных", "HTTPS/JSON")
+Rel(api, login, "Проверка токена сессии")
+Rel(login, auth, "Проверка входа игрока", "OpenID / HTTPS")
+Rel(api, search, "Запросы списков и поиска")
+Rel(api, links, "Запрос ссылки на скачивание")
+Rel(api, access, "Изменение уровня доступа")
+Rel(api, profiles, "Удаление данных игрока")
+Rel(links, access, "Можно ли выдать запись этому пользователю")
+Rel(events, ingest, "«Реплей принят»", "HTTPS/JSON, раз в 5 с")
+Rel(events, storage, "«Запись удалена по истечении срока»", "HTTPS/JSON, раз в 5 с")
+Rel(events, access, "Внести матч в каталог, исключить матч из каталога")
+Rel(events, profiles, "Сопоставить матч с профилями участников")
+Rel(search, db_catalog, "Чтение карточек", "SQL/JDBC")
+Rel(access, db_catalog, "Карточки матчей", "SQL/JDBC")
+Rel(links, db_catalog, "Журнал выдач", "SQL/JDBC")
+Rel(profiles, db_catalog, "Профили игроков", "SQL/JDBC")
+
+SHOW_LEGEND()
+@enduml

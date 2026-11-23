@@ -1,0 +1,325 @@
+# Карта событий, ПР-2. Сквозной пример «Городской велопрокат».
+# Единый источник: из него собираются .drawio (три листа), .puml и лист для печати.
+# Раскладка явная: col это столбец на ленте времени, row это строка внутри дорожки контекста.
+# Ключи YAML пишутся латиницей и не совпадают со словами on, off, yes, no, y, n.
+
+title: "Карта событий. Городской велопрокат"
+
+contexts:
+  - {id: rent, name: "Аренда",  rows: [top, actor, main, branch]}
+  - {id: pay,  name: "Расчёты", rows: [top, main, branch]}
+  - {id: st,   name: "Станции", rows: [top, actor, main, actor2, branch, branch2]}
+
+actors:
+  user: "Пользователь проката"
+  oper: "Оператор станции"
+
+agents:
+  planner:
+    name: "Агент планирования перевозок"
+    boundary: "Входит в систему, размещается в Службе станций"
+    confirm: "Предложение перевозки исполняется только после утверждения оператором станции"
+
+externals:
+  gw:     "Платёжный шлюз"
+  notify: "Служба уведомлений"
+
+readmodels:
+  free:      {name: "Свободные велосипеды на станциях", from: [e_reserved, e_unreserved, e_return, e_broken]}
+  load:      {name: "Загрузка станций", from: [e_unlock, e_return, e_short]}
+  proposals: {name: "Предложенные перевозки", from: [e_proposed]}
+
+aggregates:
+  client:
+    name: "Клиент"
+    ctx: rent
+    invariants:
+      - "У клиента не более одной незавершённой аренды"
+      - "Закрытая или отменённая аренда повторно не открывается"
+      - "Пока у клиента есть непогашенная задолженность, незавершённых аренд у него нет"
+  trip:
+    name: "Поездка"
+    ctx: rent
+    invariants:
+      - "Время завершения поездки не раньше времени её начала"
+      - "Стоимость рассчитывается один раз и только для завершённой поездки"
+  payment:
+    name: "Платёж"
+    ctx: pay
+    invariants:
+      - "По одной аренде не более одного успешного списания"
+      - "Залог снимается не более одного раза и только если был заблокирован"
+  station:
+    name: "Станция"
+    ctx: st
+    invariants:
+      - "Число велосипедов на станции не превышает числа мест"
+      - "Велосипед, выведенный из проката, не резервируется и не разблокируется"
+      - "Велосипед зарезервирован не более чем под одну аренду"
+  task:
+    name: "Задание на перевозку"
+    ctx: st
+    invariants:
+      - "Задание утверждается или отклоняется ровно один раз"
+      - "Станции отправления и назначения в задании различаются"
+
+steps:
+  # ---------- основной ход ----------
+  - id: s1
+    ctx: rent
+    col: 1
+    row: main
+    trigger: {actor: user, readmodel: free}
+    command: "Запросить аренду"
+    target: {aggregate: client}
+    events:
+      - {id: e_req,    text: "Аренда запрошена"}
+      - {id: e_refuse, text: "В аренде отказано", alt: true}
+
+  - id: s2
+    ctx: st
+    col: 4
+    row: main
+    trigger: {policy: "Когда аренда запрошена, то зарезервировать велосипед", after: e_req}
+    command: "Зарезервировать велосипед"
+    target: {aggregate: station}
+    events:
+      - {id: e_reserved, text: "Велосипед зарезервирован"}
+
+  - id: s3
+    ctx: pay
+    col: 8
+    row: main
+    trigger: {policy: "Когда велосипед зарезервирован, то заблокировать залог", after: e_reserved}
+    command: "Заблокировать залог"
+    target: {aggregate: payment}
+    uses: gw
+    events:
+      - {id: e_hold,      text: "Залог заблокирован"}
+      - {id: e_hold_fail, text: "Блокировка залога отклонена", alt: true}
+
+  - id: s3b
+    ctx: rent
+    col: 12
+    row: branch
+    trigger: {policy: "Когда блокировка залога отклонена, то отменить аренду", after: e_hold_fail, route_dx: -10}
+    command: "Отменить аренду"
+    target: {aggregate: client}
+    events:
+      - {id: e_cancel, text: "Аренда отменена"}
+
+  - id: s3c
+    ctx: st
+    col: 16
+    row: branch
+    trigger: {policy: "Когда аренда отменена, то снять резерв велосипеда", after: e_cancel, route_dx: 10}
+    command: "Снять резерв велосипеда"
+    target: {aggregate: station}
+    events:
+      - {id: e_unreserved, text: "Резерв велосипеда снят"}
+
+  - id: s4
+    ctx: st
+    col: 12
+    row: main
+    trigger: {policy: "Когда залог заблокирован, то разблокировать велосипед", after: e_hold, route_dx: 10}
+    command: "Разблокировать велосипед"
+    target: {aggregate: station}
+    events:
+      - {id: e_unlock, text: "Велосипед разблокирован"}
+
+  - id: s5
+    ctx: rent
+    col: 16
+    row: main
+    trigger: {policy: "Когда велосипед разблокирован, то начать поездку", after: e_unlock, route_dx: -10}
+    command: "Начать поездку"
+    target: {aggregate: trip}
+    events:
+      - {id: e_start, text: "Поездка начата"}
+
+  - id: s6
+    ctx: st
+    col: 20
+    row: main
+    trigger: {actor: user}
+    command: "Вернуть велосипед на станцию"
+    target: {aggregate: station}
+    events:
+      - {id: e_return, text: "Велосипед возвращён на станцию"}
+
+  - id: s7
+    ctx: rent
+    col: 23
+    row: main
+    trigger: {policy: "Когда велосипед возвращён на станцию, то завершить поездку", after: e_return}
+    command: "Завершить поездку"
+    target: {aggregate: trip}
+    events:
+      - {id: e_end, text: "Поездка завершена"}
+
+  - id: s8
+    ctx: rent
+    col: 27
+    row: main
+    trigger: {policy: "Когда поездка завершена, то рассчитать стоимость", after: e_end}
+    command: "Рассчитать стоимость поездки"
+    target: {aggregate: trip}
+    events:
+      - {id: e_cost, text: "Стоимость поездки рассчитана"}
+
+  - id: s9
+    ctx: pay
+    col: 31
+    row: main
+    trigger: {policy: "Когда стоимость поездки рассчитана, то списать оплату", after: e_cost}
+    command: "Списать оплату"
+    target: {aggregate: payment}
+    uses: gw
+    events:
+      - {id: e_paid,     text: "Оплата списана"}
+      - {id: e_pay_fail, text: "Списание отклонено", alt: true}
+
+  - id: s10
+    ctx: pay
+    col: 35
+    row: main
+    trigger: {policy: "Когда оплата списана, то снять залог", after: e_paid}
+    command: "Снять залог"
+    target: {aggregate: payment}
+    uses: gw
+    events:
+      - {id: e_released, text: "Залог снят"}
+
+  - id: s11
+    ctx: rent
+    col: 36
+    row: main
+    trigger: {policy: "Когда оплата списана, то закрыть аренду", after: e_paid, route_gap: 34, route_dx: 8}
+    command: "Закрыть аренду"
+    target: {aggregate: client}
+    events:
+      - {id: e_closed, text: "Аренда закрыта"}
+
+  - id: s12
+    ctx: rent
+    col: 36
+    row: branch
+    trigger: {policy: "Когда списание отклонено, то закрыть аренду с задолженностью", after: e_pay_fail, route_gap: 34, route_dx: -8}
+    command: "Закрыть аренду с задолженностью"
+    target: {aggregate: client}
+    events:
+      - {id: e_debt, text: "Аренда закрыта с задолженностью"}
+
+  - id: s13
+    ctx: rent
+    col: 40
+    row: main
+    trigger: {policy: "Когда аренда закрыта, то отправить сообщение о конце поездки", after: e_closed}
+    command: "Отправить сообщение о конце поездки"
+    target: {external: notify}
+    events:
+      - {id: e_msg, text: "Сообщение о конце поездки отправлено"}
+
+  - id: s14
+    ctx: rent
+    col: 40
+    row: branch
+    trigger: {policy: "Когда аренда закрыта с задолженностью, то уведомить клиента", after: e_debt}
+    command: "Уведомить клиента о задолженности"
+    target: {external: notify}
+    events:
+      - {id: e_debt_msg, text: "Уведомление о задолженности отправлено"}
+
+  # ---------- эксплуатация станций и ИИ-агент ----------
+  - id: s15
+    ctx: st
+    col: 21
+    row: branch
+    trigger: {actor: oper}
+    command: "Отметить велосипед неисправным"
+    target: {aggregate: station}
+    events:
+      - {id: e_broken, text: "Велосипед выведен из проката"}
+
+  - id: s16
+    ctx: st
+    col: 25
+    row: branch
+    trigger: {schedule: "По расписанию проверять заполненность станций"}
+    command: "Проверить заполненность станций"
+    target: {aggregate: station}
+    events:
+      - {id: e_short, text: "Нехватка велосипедов обнаружена"}
+
+  - id: s17
+    ctx: st
+    col: 29
+    row: branch
+    trigger: {agent: planner, after: e_short, readmodel: load}
+    command: "Предложить перевозку велосипедов"
+    target: {aggregate: task}
+    events:
+      - {id: e_proposed, text: "Перевозка предложена"}
+
+  - id: s18
+    ctx: st
+    col: 33
+    row: branch
+    trigger: {policy: "Когда перевозка предложена, то уведомить оператора", after: e_proposed}
+    command: "Уведомить оператора"
+    target: {external: notify}
+    events:
+      - {id: e_notified, text: "Оператор уведомлён"}
+
+  - id: s19
+    ctx: st
+    col: 38
+    row: branch
+    trigger: {actor: oper, readmodel: proposals}
+    command: "Утвердить перевозку"
+    target: {aggregate: task}
+    events:
+      - {id: e_approved, text: "Перевозка утверждена"}
+      - {id: e_rejected, text: "Перевозка отклонена", alt: true}
+
+hotspots:
+  - {ctx: pay,  row: top,    col: 9,  about: s3,  text: "Какую сумму блокировать в залог и кто её утверждает?"}
+  - {ctx: st,   row: top,    col: 13, about: s4,  text: "Сколько ждать ответа замка и что делать, если он не ответил?"}
+  - {ctx: st,   row: top,    col: 20, about: s6,  text: "Куда вернуть велосипед, если на станции нет свободных мест?"}
+  - {ctx: rent, row: top,    col: 24, about: s7,  text: "Может ли служба поддержки завершить поездку вручную?"}
+  - {ctx: pay,  row: branch, col: 36, about: s12, text: "Удерживать ли залог в счёт задолженности?"}
+  - {ctx: st,   row: actor2, col: 23, about: s15, text: "Кто передаёт велосипед в ремонт, если ремонт вне границ проекта?"}
+  - {ctx: st,   row: actor2, col: 25, about: s16, text: "С какой периодичностью проверять заполненность станций?"}
+  - {ctx: st,   row: actor2, col: 31, about: s17, text: "Может ли агент назначить перевозку без утверждения оператора?"}
+
+boundaries:
+  - between: [rent, pay]
+    reason: >-
+      Разные требования к согласованности: списание выполняется ровно один раз и сверяется
+      с банком, а статус аренды допускает задержку. Разный язык: в Расчётах аренда видна
+      только как основание платежа. С платёжным шлюзом работают только Расчёты.
+  - between: [rent, st]
+    reason: >-
+      Разный темп изменений: состояние мест и замков меняется по сигналам оборудования,
+      а аренда меняется несколько раз за поездку. Разный состав участников: оператор станции
+      и ИИ-агент работают только со Станциями. Термин «Велосипед» по разные стороны означает разное.
+  - between: [client, trip]
+    kind: not_a_boundary
+    reason: >-
+      Клиент и Поездка остаются в одном контексте: у них общий язык (аренда, поездка, стоимость)
+      и общий участник, пользователь проката.
+
+terms:
+  - term: "Велосипед"
+    meanings:
+      rent: "Предмет аренды: номер, по которому открыта аренда"
+      st:   "Единица парка: место на станции, резерв и исправность"
+
+# Сверка с примерами ПР-1 и ПР-3 (идёт в перечень расхождений отчёта)
+discrepancies:
+  - "ИИ-агента нет в разделе границ примера ПР-1: добавить в «Входит в систему»."
+  - "ИИ-агента нет на диаграмме компонентов примера ПР-3: добавить в Службу станций."
+  - "Служба поддержки есть на контекстной диаграмме ПР-3, но нет в стейкхолдерах ПР-1: вынесено в горячую точку."
+  - "Банк-эквайер есть в стейкхолдерах ПР-1, но команд не отдаёт: действует через платёжный шлюз."
+  - "Контекст «Расчёты» в ПР-3 реализован компонентом «Клиент платёжного шлюза» внутри Службы аренды: один контейнер обслуживает два контекста."

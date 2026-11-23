@@ -1,0 +1,127 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram name="Модель прецедентов платформы хранения игровых повторов" id="d1">
+    <mxGraphModel dx="1213" dy="722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="11" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="Модель прецедентов платформы хранения игровых повторов" vertex="1">
+          <mxGeometry height="30" width="700" x="20" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;verticalAlign=top;fontSize=13;fontStyle=1;" value="Платформа хранения игровых повторов" vertex="1">
+          <mxGeometry height="690" width="540" x="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" value="Зритель" vertex="1">
+          <mxGeometry height="70" width="40" x="110" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" value="Игрок" vertex="1">
+          <mxGeometry height="70" width="40" x="110" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" value="Владелец серверов" vertex="1">
+          <mxGeometry height="70" width="40" x="110" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;verticalAlign=middle;" value="«actor»&lt;br&gt;Приложение владельца серверов" vertex="1">
+          <mxGeometry height="56" width="180" x="890" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;verticalAlign=middle;" value="«actor»&lt;br&gt;Облачное хранилище" vertex="1">
+          <mxGeometry height="56" width="180" x="890" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;verticalAlign=middle;" value="«actor»&lt;br&gt;Выделенный игровой сервер" vertex="1">
+          <mxGeometry height="56" width="180" x="890" y="538" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Найти матч" vertex="1">
+          <mxGeometry height="54" width="230" x="320" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Скачать реплей" vertex="1">
+          <mxGeometry height="54" width="230" x="320" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Удалить свои данные" vertex="1">
+          <mxGeometry height="54" width="230" x="320" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Разрешить приложению доступ к своим матчам" vertex="1">
+          <mxGeometry height="54" width="230" x="320" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Отозвать доступ приложения" vertex="1">
+          <mxGeometry height="54" width="230" x="320" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Подключить игровой сервер" vertex="1">
+          <mxGeometry height="54" width="230" x="320" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Отозвать ключ сервера" vertex="1">
+          <mxGeometry height="54" width="230" x="320" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="26" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Изменить доступ к матчу" vertex="1">
+          <mxGeometry height="54" width="230" x="320" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="27" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Зарегистрировать приложение" vertex="1">
+          <mxGeometry height="54" width="230" x="320" y="675" as="geometry" />
+        </mxCell>
+        <mxCell id="28" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Выгрузить запись матча" vertex="1">
+          <mxGeometry height="54" width="220" x="590" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="29" edge="1" parent="1" source="13" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="19" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" edge="1" parent="1" source="13" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="20" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" edge="1" parent="1" source="14" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="21" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" edge="1" parent="1" source="14" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="22" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" edge="1" parent="1" source="14" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="23" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" edge="1" parent="1" source="15" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="24" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" edge="1" parent="1" source="15" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="25" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" edge="1" parent="1" source="15" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="26" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="37" edge="1" parent="1" source="15" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="27" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="38" edge="1" parent="1" source="14" style="endArrow=block;endFill=0;endSize=14;html=1;rounded=0;strokeColor=#5a5a5a;" target="13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39" edge="1" parent="1" source="19" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="40" edge="1" parent="1" source="20" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="41" edge="1" parent="1" source="20" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="17" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="42" edge="1" parent="1" source="28" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="17" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="43" edge="1" parent="1" source="28" style="endArrow=none;html=1;rounded=0;strokeColor=#5a5a5a;" target="18" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="44" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=11;size=14;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=top;spacingLeft=6;" value="Обобщение: игрок может всё, что зритель (найти и скачать публичный матч), а также видит свои скрытые матчи и управляет своими данными" vertex="1">
+          <mxGeometry height="100" width="250" x="20" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="45" edge="1" parent="1" source="44" style="endArrow=none;dashed=1;html=1;rounded=0;strokeColor=#b0b0b0;" target="14" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="46" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=11;size=14;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=top;spacingLeft=6;" value="Необязательное действующее лицо: есть только у владельцев серверов, сделавших свой сайт или лаунчер на API каталога. Действует от имени игрока по выданному им разрешению" vertex="1">
+          <mxGeometry height="130" width="200" x="880" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="47" edge="1" parent="1" source="46" style="endArrow=none;dashed=1;html=1;rounded=0;strokeColor=#b0b0b0;" target="16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="48" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=11;size=14;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=top;spacingLeft=6;" value="Вспомогательное действующее лицо: к нему обращается сама система, но исход выгрузки и скачивания определяется его ответом" vertex="1">
+          <mxGeometry height="100" width="200" x="880" y="417" as="geometry" />
+        </mxCell>
+        <mxCell id="49" edge="1" parent="1" source="48" style="endArrow=none;dashed=1;html=1;rounded=0;strokeColor=#b0b0b0;" target="17" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

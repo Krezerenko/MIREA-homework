@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Defs_1" targetNamespace="http://bpmn.io/schema/bpmn">
+<bpmn:collaboration id="Collab_1">
+<bpmn:participant id="P_app" name="Заявитель"/>
+<bpmn:participant id="P_org" name="Сеть городского велопроката" processRef="Process_1"/>
+<bpmn:messageFlow id="m1" name="Обращение" sourceRef="P_app" targetRef="st"/>
+<bpmn:messageFlow id="m2" name="Запрос уточнения" sourceRef="ask" targetRef="P_app"/>
+<bpmn:messageFlow id="m3" name="Уточнение" sourceRef="P_app" targetRef="wait"/>
+<bpmn:messageFlow id="m4" name="Уведомление об отказе" sourceRef="noE" targetRef="P_app"/>
+<bpmn:messageFlow id="m5" name="Уведомление о возврате" sourceRef="okE" targetRef="P_app"/>
+</bpmn:collaboration>
+<bpmn:process id="Process_1" name="Рассмотрение обращения о неверном списании" isExecutable="false">
+<bpmn:laneSet id="LaneSet_1">
+<bpmn:lane id="L1" name="Первая линия поддержки"><bpmn:flowNodeRef>st</bpmn:flowNodeRef><bpmn:flowNodeRef>reg</bpmn:flowNodeRef><bpmn:flowNodeRef>ask</bpmn:flowNodeRef><bpmn:flowNodeRef>wait</bpmn:flowNodeRef><bpmn:flowNodeRef>noR</bpmn:flowNodeRef><bpmn:flowNodeRef>g1</bpmn:flowNodeRef><bpmn:flowNodeRef>refuse</bpmn:flowNodeRef><bpmn:flowNodeRef>noE</bpmn:flowNodeRef><bpmn:flowNodeRef>tw</bpmn:flowNodeRef></bpmn:lane>
+<bpmn:lane id="L2" name="Вторая линия поддержки"><bpmn:flowNodeRef>issue</bpmn:flowNodeRef><bpmn:flowNodeRef>esc</bpmn:flowNodeRef><bpmn:flowNodeRef>escE</bpmn:flowNodeRef><bpmn:flowNodeRef>tmr</bpmn:flowNodeRef></bpmn:lane>
+<bpmn:lane id="L3" name="Система"><bpmn:flowNodeRef>gm</bpmn:flowNodeRef><bpmn:flowNodeRef>check</bpmn:flowNodeRef><bpmn:flowNodeRef>refund</bpmn:flowNodeRef><bpmn:flowNodeRef>okE</bpmn:flowNodeRef></bpmn:lane>
+</bpmn:laneSet>
+<bpmn:startEvent id="st" name="Обращение получено"><bpmn:outgoing>f1</bpmn:outgoing><bpmn:messageEventDefinition id="st_md"/></bpmn:startEvent>
+<bpmn:userTask id="reg" name="Зарегистрировать обращение"><bpmn:incoming>f1</bpmn:incoming><bpmn:outgoing>f2</bpmn:outgoing></bpmn:userTask>
+<bpmn:sendTask id="ask" name="Запросить уточнение"><bpmn:incoming>f5</bpmn:incoming><bpmn:outgoing>f6</bpmn:outgoing></bpmn:sendTask>
+<bpmn:receiveTask id="wait" name="Получить уточнение"><bpmn:incoming>f6</bpmn:incoming><bpmn:outgoing>f7</bpmn:outgoing></bpmn:receiveTask>
+<bpmn:endEvent id="noR" name="Закрыто без ответа"><bpmn:incoming>f8</bpmn:incoming></bpmn:endEvent>
+<bpmn:exclusiveGateway id="g1" name="Результат проверки?"><bpmn:incoming>f4</bpmn:incoming><bpmn:outgoing>f5</bpmn:outgoing><bpmn:outgoing>f9</bpmn:outgoing><bpmn:outgoing>f11</bpmn:outgoing></bpmn:exclusiveGateway>
+<bpmn:userTask id="refuse" name="Подготовить отказ"><bpmn:incoming>f9</bpmn:incoming><bpmn:outgoing>f10</bpmn:outgoing></bpmn:userTask>
+<bpmn:endEvent id="noE" name="Отказ отправлен"><bpmn:incoming>f10</bpmn:incoming><bpmn:messageEventDefinition id="noE_md"/></bpmn:endEvent>
+<bpmn:userTask id="issue" name="Оформить возврат"><bpmn:incoming>f11</bpmn:incoming><bpmn:outgoing>f12</bpmn:outgoing></bpmn:userTask>
+<bpmn:userTask id="esc" name="Эскалировать старшему"><bpmn:incoming>f14</bpmn:incoming><bpmn:outgoing>f15</bpmn:outgoing></bpmn:userTask>
+<bpmn:endEvent id="escE" name="Эскалация передана"><bpmn:incoming>f15</bpmn:incoming></bpmn:endEvent>
+<bpmn:exclusiveGateway id="gm"><bpmn:incoming>f2</bpmn:incoming><bpmn:incoming>f7</bpmn:incoming><bpmn:outgoing>f3</bpmn:outgoing></bpmn:exclusiveGateway>
+<bpmn:serviceTask id="check" name="Проверить данные поездки"><bpmn:incoming>f3</bpmn:incoming><bpmn:outgoing>f4</bpmn:outgoing></bpmn:serviceTask>
+<bpmn:serviceTask id="refund" name="Инициировать возврат"><bpmn:incoming>f12</bpmn:incoming><bpmn:outgoing>f13</bpmn:outgoing></bpmn:serviceTask>
+<bpmn:endEvent id="okE" name="Возврат оформлен"><bpmn:incoming>f13</bpmn:incoming><bpmn:messageEventDefinition id="okE_md"/></bpmn:endEvent>
+<bpmn:boundaryEvent id="tw" name="5 суток" cancelActivity="true" attachedToRef="wait"><bpmn:outgoing>f8</bpmn:outgoing><bpmn:timerEventDefinition id="tw_td"><bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P5D</bpmn:timeDuration></bpmn:timerEventDefinition></bpmn:boundaryEvent>
+<bpmn:boundaryEvent id="tmr" name="24 ч" cancelActivity="false" attachedToRef="issue"><bpmn:outgoing>f14</bpmn:outgoing><bpmn:timerEventDefinition id="tmr_td"><bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT24H</bpmn:timeDuration></bpmn:timerEventDefinition></bpmn:boundaryEvent>
+<bpmn:sequenceFlow id="f1" sourceRef="st" targetRef="reg"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f2" sourceRef="reg" targetRef="gm"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f3" sourceRef="gm" targetRef="check"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f4" sourceRef="check" targetRef="g1"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f5" name="данных недостаточно" sourceRef="g1" targetRef="ask"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${checkResult == &#x27;insufficient_data&#x27;}</bpmn:conditionExpression></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f6" sourceRef="ask" targetRef="wait"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f7" sourceRef="wait" targetRef="gm"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f8" sourceRef="tw" targetRef="noR"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f9" name="ошибки нет" sourceRef="g1" targetRef="refuse"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${checkResult == &#x27;no_error&#x27;}</bpmn:conditionExpression></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f10" sourceRef="refuse" targetRef="noE"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f11" name="ошибка подтверждена" sourceRef="g1" targetRef="issue"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${checkResult == &#x27;error_confirmed&#x27;}</bpmn:conditionExpression></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f12" sourceRef="issue" targetRef="refund"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f13" sourceRef="refund" targetRef="okE"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f14" sourceRef="tmr" targetRef="esc"></bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="f15" sourceRef="esc" targetRef="escE"></bpmn:sequenceFlow>
+</bpmn:process>
+<bpmndi:BPMNDiagram id="Diag_1"><bpmndi:BPMNPlane id="Plane_1" bpmnElement="Collab_1">
+<bpmndi:BPMNShape id="P_app_di" bpmnElement="P_app" isHorizontal="true" isExpanded="false"><dc:Bounds x="20" y="45" width="1010" height="55"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="P_org_di" bpmnElement="P_org" isHorizontal="true"><dc:Bounds x="20" y="125" width="1010" height="480"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="L1_di" bpmnElement="L1" isHorizontal="true"><dc:Bounds x="46" y="125" width="984" height="200"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="L2_di" bpmnElement="L2" isHorizontal="true"><dc:Bounds x="46" y="325" width="984" height="150"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="L3_di" bpmnElement="L3" isHorizontal="true"><dc:Bounds x="46" y="475" width="984" height="130"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="st_di" bpmnElement="st"><dc:Bounds x="77" y="252" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="reg_di" bpmnElement="reg"><dc:Bounds x="140" y="246" width="130" height="48"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="ask_di" bpmnElement="ask"><dc:Bounds x="440" y="150" width="130" height="44"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="wait_di" bpmnElement="wait"><dc:Bounds x="290" y="150" width="130" height="44"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="noR_di" bpmnElement="noR"><dc:Bounds x="187" y="154" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="g1_di" bpmnElement="g1"><dc:Bounds x="480" y="245" width="50" height="50"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="refuse_di" bpmnElement="refuse"><dc:Bounds x="600" y="246" width="130" height="48"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="noE_di" bpmnElement="noE"><dc:Bounds x="782" y="252" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="issue_di" bpmnElement="issue"><dc:Bounds x="560" y="340" width="130" height="48"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="esc_di" bpmnElement="esc"><dc:Bounds x="740" y="415" width="135" height="42"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="escE_di" bpmnElement="escE"><dc:Bounds x="912" y="418" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="gm_di" bpmnElement="gm"><dc:Bounds x="225" y="515" width="50" height="50"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="check_di" bpmnElement="check"><dc:Bounds x="300" y="516" width="140" height="48"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="refund_di" bpmnElement="refund"><dc:Bounds x="740" y="516" width="135" height="48"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="okE_di" bpmnElement="okE"><dc:Bounds x="967" y="522" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="tw_di" bpmnElement="tw"><dc:Bounds x="282" y="176" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="tmr_di" bpmnElement="tmr"><dc:Bounds x="652" y="370" width="36" height="36"/></bpmndi:BPMNShape>
+<bpmndi:BPMNEdge id="f1_di" bpmnElement="f1"><di:waypoint x="113" y="270"/><di:waypoint x="140" y="270"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f2_di" bpmnElement="f2"><di:waypoint x="205" y="294"/><di:waypoint x="205" y="540"/><di:waypoint x="225" y="540"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f3_di" bpmnElement="f3"><di:waypoint x="275" y="540"/><di:waypoint x="300" y="540"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f4_di" bpmnElement="f4"><di:waypoint x="440" y="540"/><di:waypoint x="470" y="540"/><di:waypoint x="470" y="270"/><di:waypoint x="480" y="270"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f5_di" bpmnElement="f5"><di:waypoint x="505" y="245"/><di:waypoint x="505" y="194"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f6_di" bpmnElement="f6"><di:waypoint x="440" y="172"/><di:waypoint x="420" y="172"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f7_di" bpmnElement="f7"><di:waypoint x="355" y="194"/><di:waypoint x="355" y="490"/><di:waypoint x="250" y="490"/><di:waypoint x="250" y="515"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f8_di" bpmnElement="f8"><di:waypoint x="300" y="212"/><di:waypoint x="300" y="225"/><di:waypoint x="205" y="225"/><di:waypoint x="205" y="190"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f9_di" bpmnElement="f9"><di:waypoint x="530" y="270"/><di:waypoint x="600" y="270"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f10_di" bpmnElement="f10"><di:waypoint x="730" y="270"/><di:waypoint x="782" y="270"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f11_di" bpmnElement="f11"><di:waypoint x="505" y="295"/><di:waypoint x="505" y="364"/><di:waypoint x="560" y="364"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f12_di" bpmnElement="f12"><di:waypoint x="690" y="364"/><di:waypoint x="715" y="364"/><di:waypoint x="715" y="540"/><di:waypoint x="740" y="540"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f13_di" bpmnElement="f13"><di:waypoint x="875" y="540"/><di:waypoint x="967" y="540"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f14_di" bpmnElement="f14"><di:waypoint x="670" y="406"/><di:waypoint x="670" y="436"/><di:waypoint x="740" y="436"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="f15_di" bpmnElement="f15"><di:waypoint x="875" y="436"/><di:waypoint x="912" y="436"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="m1_di" bpmnElement="m1"><di:waypoint x="95" y="100"/><di:waypoint x="95" y="252"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="m2_di" bpmnElement="m2"><di:waypoint x="505" y="150"/><di:waypoint x="505" y="100"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="m3_di" bpmnElement="m3"><di:waypoint x="355" y="100"/><di:waypoint x="355" y="150"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="m4_di" bpmnElement="m4"><di:waypoint x="800" y="252"/><di:waypoint x="800" y="100"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="m5_di" bpmnElement="m5"><di:waypoint x="985" y="522"/><di:waypoint x="985" y="100"/></bpmndi:BPMNEdge>
+</bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>

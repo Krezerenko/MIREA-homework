@@ -3,3 +3,39 @@
 *.tmp
 *.exe
 *.ppk
+
+# Virtual environments & caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editor / Office / Draw.io temp & backup files
+~$*
+*.drawio.bkp
+*.bkp
+
+# Archives & databases
+*.zip
+*.rar
+*.7z
+*.sqlite
+*.sqlite3
+*.db
+
+# Sem7 Big Data heavy datasets & experiment outputs
+Sem7/Big Data/Materials/Task2/
+Sem7/Big Data/Materials/Task3/
+Sem7/Big Data/Tasks/Tasks3-4/komus/
+Sem7/Big Data/Tasks/Tasks3-4/spark_input/
+Sem7/Big Data/Tasks/Tasks3-4/spark_input_parquet/
+Sem7/Big Data/Tasks/Tasks3-4/small_files_experiment/
+Sem7/Big Data/Tasks/Tasks3-4/self_files_experiment/
+
+# Nested git repos in Sem7
+Sem7/SDM/Tasks/Task4/
+Sem7/SDM/Tasks/Task7/
+
+# Unity Burst debug output
+*_BurstDebugInformation_DoNotShip/

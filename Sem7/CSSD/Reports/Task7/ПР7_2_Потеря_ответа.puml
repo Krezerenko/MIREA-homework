@@ -1,0 +1,36 @@
+@startuml ПР7_2_Потеря_ответа
+skinparam sequenceArrowThickness 2
+skinparam participantPadding 12
+title Потеря ответа при завершении выгрузки и повтор с предметным ключом
+
+participant "Игровой сервер\n(модуль выгрузки)" as sdk
+participant "Служба приёма" as ingest
+database "БД приёма" as dbe
+participant "Облачное хранилище" as s3
+
+sdk -> ingest : POST /api/v1/replay-uploads\n(external_match_id = "m-20261120-1842",\nchecksum = 9f2c…)
+ingest --> sdk : 201: upload_id, upload_url
+sdk -> s3 : PUT upload_url (файл записи)
+s3 --> sdk : 200 + ETag
+
+sdk -> ingest : POST …/complete
+ingest -> s3 : HEAD: проверить объект
+ingest -> dbe : записать реплей, событие\n«Реплей принят», учесть квоту
+note right of ingest
+  Операция выполнена:
+  запись принята
+end note
+ingest -// sdk : 200: result = accepted
+note across: Ответ сформирован, но до модуля выгрузки не дошёл: потеря в сети
+
+sdk -> sdk : таймаут попытки 3 с;\nобщий срок 8 с ещё не исчерпан
+sdk -> ingest : повтор: POST /api/v1/replay-uploads\nс тем же external_match_id и той же\nконтрольной суммой
+ingest -> dbe : матч уже принят:\nключ (владелец, сервер, матч) найден,\nсумма совпадает
+ingest --> sdk : 200: результат первой операции\n(accepted, replay_id), новый реплей не создаётся
+sdk -> sdk : удалить файл из буфера выгрузки
+note right of sdk
+  Повторного предметного эффекта нет:
+  запись, событие и учёт квоты
+  существуют в одном экземпляре
+end note
+@enduml

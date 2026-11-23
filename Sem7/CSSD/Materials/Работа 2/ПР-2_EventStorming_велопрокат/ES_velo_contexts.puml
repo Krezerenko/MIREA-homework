@@ -1,0 +1,231 @@
+@startuml
+left to right direction
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam wrapWidth 130
+skinparam defaultTextAlignment center
+skinparam ArrowColor #333333
+skinparam rectangle {
+  BorderColor #1F1F1F
+}
+skinparam rectangle<<ai>> {
+  RoundCorner 25
+}
+skinparam rectangle<<ctx>> {
+  BorderStyle dashed
+  BorderColor #404040
+  BackgroundColor #FAFAFA
+  FontSize 15
+  FontStyle bold
+}
+hide stereotype
+title Карта событий. Городской велопрокат
+
+rectangle "Ограниченный контекст «Аренда»" as ctx_rent <<ctx>> {
+  rectangle "<i><size:10>участник</size></i>\nПользователь проката" as s1_a #FFF566
+  file "<i><size:10>модель чтения</size></i>\nСвободные велосипеды на станциях" as s1_r #95DE64
+  rectangle "<i><size:10>команда</size></i>\nЗапросить аренду" as s1_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Клиент</b></size>\n " as s1_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nАренда запрошена" as e_req #FFA940
+  rectangle "<i><size:10>событие</size></i>\nВ аренде отказано" as e_refuse #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда блокировка залога отклонена, то отменить аренду" as s3b_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nОтменить аренду" as s3b_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Клиент</b></size>\n " as s3b_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nАренда отменена" as e_cancel #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда велосипед разблокирован, то начать поездку" as s5_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nНачать поездку" as s5_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Поездка</b></size>\n " as s5_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nПоездка начата" as e_start #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда велосипед возвращён на станцию, то завершить поездку" as s7_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nЗавершить поездку" as s7_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Поездка</b></size>\n " as s7_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nПоездка завершена" as e_end #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда поездка завершена, то рассчитать стоимость" as s8_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nРассчитать стоимость поездки" as s8_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Поездка</b></size>\n " as s8_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nСтоимость поездки рассчитана" as e_cost #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда оплата списана, то закрыть аренду" as s11_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nЗакрыть аренду" as s11_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Клиент</b></size>\n " as s11_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nАренда закрыта" as e_closed #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда списание отклонено, то закрыть аренду с задолженностью" as s12_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nЗакрыть аренду с задолженностью" as s12_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Клиент</b></size>\n " as s12_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nАренда закрыта с задолженностью" as e_debt #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда аренда закрыта, то отправить сообщение о конце поездки" as s13_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nОтправить сообщение о конце поездки" as s13_c #69B1FF;line.bold
+  node "<i><size:10>внешняя система</size></i>\nСлужба уведомлений" as s13_t #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nСообщение о конце поездки отправлено" as e_msg #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда аренда закрыта с задолженностью, то уведомить клиента" as s14_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nУведомить клиента о задолженности" as s14_c #69B1FF;line.bold
+  node "<i><size:10>внешняя система</size></i>\nСлужба уведомлений" as s14_t #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nУведомление о задолженности отправлено" as e_debt_msg #FFA940
+  hexagon "<i><size:10>горячая точка</size></i>\nМожет ли служба поддержки завершить поездку вручную?" as hot3 #FF7875
+}
+rectangle "Ограниченный контекст «Расчёты»" as ctx_pay <<ctx>> {
+  rectangle "<i><size:10>политика</size></i>\nКогда велосипед зарезервирован, то заблокировать залог" as s3_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nЗаблокировать залог" as s3_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Платёж</b></size>\n " as s3_t #FFE58F;line.bold
+  node "<i><size:10>внешняя система</size></i>\nПлатёжный шлюз" as s3_g #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nЗалог заблокирован" as e_hold #FFA940
+  rectangle "<i><size:10>событие</size></i>\nБлокировка залога отклонена" as e_hold_fail #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда стоимость поездки рассчитана, то списать оплату" as s9_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nСписать оплату" as s9_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Платёж</b></size>\n " as s9_t #FFE58F;line.bold
+  node "<i><size:10>внешняя система</size></i>\nПлатёжный шлюз" as s9_g #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nОплата списана" as e_paid #FFA940
+  rectangle "<i><size:10>событие</size></i>\nСписание отклонено" as e_pay_fail #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда оплата списана, то снять залог" as s10_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nСнять залог" as s10_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Платёж</b></size>\n " as s10_t #FFE58F;line.bold
+  node "<i><size:10>внешняя система</size></i>\nПлатёжный шлюз" as s10_g #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nЗалог снят" as e_released #FFA940
+  hexagon "<i><size:10>горячая точка</size></i>\nКакую сумму блокировать в залог и кто её утверждает?" as hot0 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nУдерживать ли залог в счёт задолженности?" as hot4 #FF7875
+}
+rectangle "Ограниченный контекст «Станции»" as ctx_st <<ctx>> {
+  rectangle "<i><size:10>политика</size></i>\nКогда аренда запрошена, то зарезервировать велосипед" as s2_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nЗарезервировать велосипед" as s2_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Станция</b></size>\n " as s2_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nВелосипед зарезервирован" as e_reserved #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда аренда отменена, то снять резерв велосипеда" as s3c_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nСнять резерв велосипеда" as s3c_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Станция</b></size>\n " as s3c_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nРезерв велосипеда снят" as e_unreserved #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда залог заблокирован, то разблокировать велосипед" as s4_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nРазблокировать велосипед" as s4_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Станция</b></size>\n " as s4_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nВелосипед разблокирован" as e_unlock #FFA940
+  rectangle "<i><size:10>участник</size></i>\nПользователь проката" as s6_a #FFF566
+  rectangle "<i><size:10>команда</size></i>\nВернуть велосипед на станцию" as s6_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Станция</b></size>\n " as s6_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nВелосипед возвращён на станцию" as e_return #FFA940
+  rectangle "<i><size:10>участник</size></i>\nОператор станции" as s15_a #FFF566
+  rectangle "<i><size:10>команда</size></i>\nОтметить велосипед неисправным" as s15_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Станция</b></size>\n " as s15_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nВелосипед выведен из проката" as e_broken #FFA940
+  rectangle "<i><size:10>политика, по расписанию</size></i>\nПо расписанию проверять заполненность станций" as s16_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nПроверить заполненность станций" as s16_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Станция</b></size>\n " as s16_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nНехватка велосипедов обнаружена" as e_short #FFA940
+  rectangle "<i><size:10>ИИ-агент</size></i>\nАгент планирования перевозок" as s17_a <<ai>> #87E8DE;line.dotted
+  file "<i><size:10>модель чтения</size></i>\nЗагрузка станций" as s17_r #95DE64
+  rectangle "<i><size:10>команда</size></i>\nПредложить перевозку велосипедов" as s17_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Задание на перевозку</b></size>\n " as s17_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nПеревозка предложена" as e_proposed #FFA940
+  rectangle "<i><size:10>политика</size></i>\nКогда перевозка предложена, то уведомить оператора" as s18_a #D3ADF7;line.dashed
+  rectangle "<i><size:10>команда</size></i>\nУведомить оператора" as s18_c #69B1FF;line.bold
+  node "<i><size:10>внешняя система</size></i>\nСлужба уведомлений" as s18_t #FFADD2
+  rectangle "<i><size:10>событие</size></i>\nОператор уведомлён" as e_notified #FFA940
+  rectangle "<i><size:10>участник</size></i>\nОператор станции" as s19_a #FFF566
+  file "<i><size:10>модель чтения</size></i>\nПредложенные перевозки" as s19_r #95DE64
+  rectangle "<i><size:10>команда</size></i>\nУтвердить перевозку" as s19_c #69B1FF;line.bold
+  rectangle " \n<i><size:10>агрегат</size></i>\n<size:15><b>Задание на перевозку</b></size>\n " as s19_t #FFE58F;line.bold
+  rectangle "<i><size:10>событие</size></i>\nПеревозка утверждена" as e_approved #FFA940
+  rectangle "<i><size:10>событие</size></i>\nПеревозка отклонена" as e_rejected #FFA940
+  hexagon "<i><size:10>горячая точка</size></i>\nСколько ждать ответа замка и что делать, если он не ответил?" as hot1 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nКуда вернуть велосипед, если на станции нет свободных мест?" as hot2 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nКто передаёт велосипед в ремонт, если ремонт вне границ проекта?" as hot5 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nС какой периодичностью проверять заполненность станций?" as hot6 #FF7875
+  hexagon "<i><size:10>горячая точка</size></i>\nМожет ли агент назначить перевозку без утверждения оператора?" as hot7 #FF7875
+}
+
+s1_r ..> s1_a
+s1_a --> s1_c
+s1_c --> s1_t
+s1_t --> e_req
+s1_t --> e_refuse
+s2_a --> s2_c
+s2_c --> s2_t
+s2_t --> e_reserved
+e_req --> s2_a
+s3_a --> s3_c
+s3_c --> s3_t
+s3_t .. s3_g
+s3_t --> e_hold
+s3_t --> e_hold_fail
+e_reserved --> s3_a
+s3b_a --> s3b_c
+s3b_c --> s3b_t
+s3b_t --> e_cancel
+e_hold_fail --> s3b_a
+s3c_a --> s3c_c
+s3c_c --> s3c_t
+s3c_t --> e_unreserved
+e_cancel --> s3c_a
+s4_a --> s4_c
+s4_c --> s4_t
+s4_t --> e_unlock
+e_hold --> s4_a
+s5_a --> s5_c
+s5_c --> s5_t
+s5_t --> e_start
+e_unlock --> s5_a
+s6_a --> s6_c
+s6_c --> s6_t
+s6_t --> e_return
+s7_a --> s7_c
+s7_c --> s7_t
+s7_t --> e_end
+e_return --> s7_a
+s8_a --> s8_c
+s8_c --> s8_t
+s8_t --> e_cost
+e_end --> s8_a
+s9_a --> s9_c
+s9_c --> s9_t
+s9_t .. s9_g
+s9_t --> e_paid
+s9_t --> e_pay_fail
+e_cost --> s9_a
+s10_a --> s10_c
+s10_c --> s10_t
+s10_t .. s10_g
+s10_t --> e_released
+e_paid --> s10_a
+s11_a --> s11_c
+s11_c --> s11_t
+s11_t --> e_closed
+e_paid --> s11_a
+s12_a --> s12_c
+s12_c --> s12_t
+s12_t --> e_debt
+e_pay_fail --> s12_a
+s13_a --> s13_c
+s13_c --> s13_t
+s13_t --> e_msg
+e_closed --> s13_a
+s14_a --> s14_c
+s14_c --> s14_t
+s14_t --> e_debt_msg
+e_debt --> s14_a
+s15_a --> s15_c
+s15_c --> s15_t
+s15_t --> e_broken
+s16_a --> s16_c
+s16_c --> s16_t
+s16_t --> e_short
+s17_r ..> s17_a
+s17_a --> s17_c
+s17_c --> s17_t
+s17_t --> e_proposed
+e_short --> s17_a
+s18_a --> s18_c
+s18_c --> s18_t
+s18_t --> e_notified
+e_proposed --> s18_a
+s19_r ..> s19_a
+s19_a --> s19_c
+s19_c --> s19_t
+s19_t --> e_approved
+s19_t --> e_rejected
+hot0 .. s3_c
+hot1 .. s4_c
+hot2 .. s6_c
+hot3 .. s7_c
+hot4 .. s12_c
+hot5 .. s15_c
+hot6 .. s16_c
+hot7 .. s17_c
+@enduml
